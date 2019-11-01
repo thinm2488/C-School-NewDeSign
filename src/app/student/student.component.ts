@@ -29,6 +29,7 @@ export class StudentComponent implements OnInit {
   checksua: boolean = false
   checktao: boolean = true
   modalRef: BsModalRef;
+  searchText
   constructor(private modalService: BsModalService,private cookieService:CookieService,private calendar: NgbCalendar,private fb: FormBuilder,private excelService:ExcelService,private apiService: ApiService) {
     this.createform()
    }

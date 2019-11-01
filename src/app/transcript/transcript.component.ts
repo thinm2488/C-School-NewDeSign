@@ -32,6 +32,7 @@ export class TranscriptComponent implements OnInit {
   checktimeHKII:boolean=false
   mon:any;
   checkcanam:boolean=false
+  searchText
   constructor(private as: ApiService, private cookieService: CookieService, private ts:TranscriptService) { }
 
   ngOnInit() {
