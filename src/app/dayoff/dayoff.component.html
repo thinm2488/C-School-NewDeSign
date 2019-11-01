@@ -1,0 +1,220 @@
+<div class="main-content">
+    <div class="container-fluid">
+     
+      <div  class="row">
+          <div  *ngIf="checktao"class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-danger">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h4 class="card-title ">Thông Báo</h4>
+                      <p class="card-category">Danh Sách thông Báo</p>
+                    </div>
+                    <div class="col-md-6">
+      
+                      <div class="row">
+                        <div class="col-md-3" style="padding: unset">
+                          <i style="margin-top:10px; float: right;" _ngcontent-biw-c3="" class="material-icons">search</i>
+                        </div>
+                        <div class="col-md-9" style="padding-left:unset">
+                          <input class="material-icons" style="color: white" class="form-control" type="text" name="search"
+                            [(ngModel)]="searchText" autocomplete="off" placeholder=" search">
+                        </div>
+                      </div>
+      
+      
+                    </div>
+                  </div>
+      
+                </div>
+                <div class="card-body">
+               
+                  <div class="table-responsive">
+                    <table style="overflow-y: scroll" id="datatable" class="table">
+                      <thead>
+                        <tr>
+      
+                          <th>Ngày</th>
+                          <th>Tên Phụ Huynh</th>
+                          <th>Tên Học Sinh</th>
+                          <th>Lớp</th>
+                          <th>Số Lượng Ngày Nghỉ</th>
+                          <th>Trạng thái</th>
+                          <th></th>
+                          <!-- <th>Tên Học Sinh</th>
+                                    <th></th> -->
+      
+                        </tr>
+                      </thead>
+                      <tbody>
+      
+                        <tr *ngFor="let day of dayoff |filter:searchText">
+                          <td>{{day.ngayGui| date: 'dd/MM/yy'}}</td>
+                          <td>{{day.tenPhuHuynh}}</td>
+                          <td>{{day.tenHocSinh}}</td>
+                          <td>{{day.soHieu}}</td>
+                          <td>{{day.soNgayNghi}}</td>
+                          <td>{{day.trangThai}}</td>
+
+                          <td><button (click)='getobj(day)' class="btn btn-warning"> <span
+                                class="glyphicon glyphicon-pencil"></span>&ensp; Xem</button> </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <div  *ngIf="checksua"   class="col-md-7">
+          <div class="card">
+            <div class="card-header card-header-danger">
+              <div class="row">
+                <div class="col-md-6">
+                  <h4 class="card-title ">Thông Báo</h4>
+                  <p class="card-category">Danh Sách thông Báo</p>
+                </div>
+                <div class="col-md-6">
+  
+                  <div class="row">
+                    <div class="col-md-3" style="padding: unset">
+                      <i style="margin-top:10px; float: right;" _ngcontent-biw-c3="" class="material-icons">search</i>
+                    </div>
+                    <div class="col-md-9" style="padding-left:unset">
+                      <input class="material-icons" style="color: white" class="form-control" type="text" name="search"
+                        [(ngModel)]="searchText" autocomplete="off" placeholder=" search">
+                    </div>
+                  </div>
+  
+  
+                </div>
+              </div>
+  
+            </div>
+            <div class="card-body">
+           
+              <div class="table-responsive">
+                  <table style="overflow-y: scroll" id="datatable" class="table">
+                      <thead>
+                        <tr>
+      
+                          <th>Ngày</th>
+                          <th>Tên Phụ Huynh</th>
+                          <th>Tên Học Sinh</th>
+                          <th>Lớp</th>
+                          <th>Số Lượng Ngày Nghỉ</th>
+                          <th>Trạng thái</th>
+                          <th></th>
+                          <!-- <th>Tên Học Sinh</th>
+                                    <th></th> -->
+      
+                        </tr>
+                      </thead>
+                      <tbody>
+      
+                        <tr *ngFor="let day of dayoff |filter:searchText">
+                          <td>{{day.ngayGui| date: 'dd/MM/yy'}}</td>
+                          <td>{{day.tenPhuHuynh}}</td>
+                          <td>{{day.tenHocSinh}}</td>
+                          <td>{{day.soHieu}}</td>
+                          <td>{{day.soNgayNghi}}</td>
+                          <td>{{day.trangThai}}</td>
+
+                          <td><button (click)='getobj(day)' class="btn btn-warning"> <span
+                                class="glyphicon glyphicon-pencil"></span>&ensp; Xem</button> </td>
+                        </tr>
+                      </tbody>
+                    </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div  *ngIf="checksua" class="col-md-5">
+          <div class="card">
+            <div class="card-header card-header-danger">
+              <h4 class="card-title">Nội Dung</h4>
+              <p class="card-category">Xét Duyệt</p>
+            </div>
+            <div class="card-body">
+          
+                <div class="row">
+  
+                  <div class="col-md-12">
+  
+                  
+                      <label>Phụ Huynh</label>
+                        <p>{{Dayoff.tenPhuHuynh}}</p>
+                   
+                  </div>
+  
+                </div>
+                <div class="row">
+  
+                    <div class="col-md-12">
+    
+                    
+                        <label>Học Sinh: </label>
+                     <p>{{Dayoff.tenHocSinh}}</p>
+                    </div>
+    
+                  </div>
+                <div class="row">
+  
+                    <div class="col-md-12">
+    
+                   
+                        <label>Ngày nghỉ: </label>
+                     <p>{{Dayoff.ngayBatDau| date:'dd/MM/yy'}} - {{Dayoff.ngayKetThuc|date:'dd/MM/yy'}}</p>
+                    </div>
+    
+                  </div>
+                  <div class="row">
+  
+                      <div class="col-md-12">
+      
+                     
+                         <label>Số lượng ngày nghỉ:</label>
+                         <p> {{Dayoff.soNgayNghi}}</p>
+                      
+                      </div>
+      
+                    </div>
+                <div class="row">
+                  <div class="col-md-12">
+                 
+                     <label>Lý Do</label>
+                       <p>{{Dayoff.lyDo}}</p>
+                  
+                  </div>
+  
+                </div>
+  
+            
+                <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="duyet()">Duyệt</button>
+          
+               
+                <div class="clearfix"></div>
+  
+       
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #template>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Xác thực yêu cầu</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>Bạn chắc chắn muốn xóa thông báo này??</h5>
+      </div>
+      <div style="float: right;margin-right: 20px;margin-bottom: 10px" class="row">
+          <div class="col-md-8"></div>
+          <div  class="col-md-2"><button (click)="Xoa()"style="font-size: 15px; width: 70px;height: 35px;border-radius: 10px;" class="btn btn-danger">Xóa</button></div>
+          <div  class="col-md-2" (click)="close()"><button style="font-size: 15px; width: 70px;height: 35px;border-radius: 10px;" class="btn btn-warning">Trở lại</button></div>
+      </div>
+    </ng-template>

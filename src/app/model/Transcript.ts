@@ -1,0 +1,31 @@
+export default class Transcript {
+    idHocSinh='';
+    tenHocSinh='';
+    soHieu='';
+    mon='';
+    diemmieng1=[];
+    diemmieng2='';
+    diemmieng3='';
+    diemmieng4='';
+    diemmieng5='';
+    diemmieng6='';
+    diem15p1='';
+    diem15p2='';
+    diem15p3='';
+    diem15p4='';
+    diem15p5='';
+    diem15p6='';
+    diem1tiet1='';
+    diem1tiet2='';
+    diem1tiet3='';
+    diem1tiet4='';
+    diem1tiet5='';
+    diem1tiet6='';
+    GKI='';
+    GKII='';
+    CKI='';
+    CKII='';
+    TBHKI='';
+    TBHKII='';
+    canam='';
+}

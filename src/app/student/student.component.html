@@ -1,0 +1,219 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="card">
+            <div class="card-header card-header-danger">
+              <div class="row">
+                <div class="col-md-6">
+                    <h4 class="card-title ">Học Sinh</h4>
+                    <p class="card-category">Danh Sách Học Sinh</p>
+                </div>
+                <div class="col-md-6">
+                  
+                       <div class="row">
+                         <div class="col-md-3" style="padding: unset">
+                            <i style="margin-top:10px; float: right;" _ngcontent-biw-c3="" class="material-icons">search</i>
+                         </div>
+                         <div class="col-md-9" style="padding-left:unset">
+                            <input  class="material-icons" style="color: white"class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder=" search">
+                         </div>
+                       </div>
+                     
+                  
+                </div>
+              </div>
+           
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                      <mat-form-field>
+                        <mat-label>Chọn Khối</mat-label>
+                        <mat-select  [(ngModel)]="khoilop" (valueChange)="getlop(khoi.value)" matInput class="example-full-width" #khoi>
+                          <mat-option [value]="khois" *ngFor="let khois of danhsachkhoi" #khoi>{{khois}}</mat-option>
+                         
+    
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <mat-label>Chọn Lớp</mat-label>
+                            <mat-select  [(ngModel)]="soHieu" (valueChange)="gethocsinh(lop.value)" matInput class="example-full-width" #lop>
+                              <mat-option [value]="item" *ngFor="let item of danhsachlop">{{item.soHieu}}</mat-option>
+                         
+        
+                            </mat-select>
+                          </mat-form-field>
+                    </div>
+  
+                  </div>
+              <div class="table-responsive">
+             <table style="overflow-y: scroll" id="datatable" class="table">
+                      <thead>
+                          <tr>
+                             
+                              <th>Tên Học Sinh</th>
+                              <th>Lớp</th>
+                              <th>Ngày Sinh</th>
+                              <th>Giới Tính</th>
+                              <th></th>
+                              <!-- <th>Tên Học Sinh</th>
+                              <th></th> -->
+                             
+                          </tr>
+                      </thead>
+                      <tbody>
+  
+                          <tr *ngFor="let student of liststudent |filter:searchText">
+                              <td>{{student.tenHocSinh}}</td>
+                              <td>{{student.soHieu}}</td>
+                              <td>{{student.ngaySinh| date: 'dd/MM/yy'}}</td>
+                              <td>{{student.gioiTinh}}</td>
+                              <td><button (click)='getobj(student)' class="btn btn-warning"> <span class="glyphicon glyphicon-pencil"></span>&ensp; Sửa</button> </td>
+                              <!-- <td><button class="btn btn-danger"> <span class="glyphicon glyphicon-pencil"></span>&ensp; Xóa</button></td>     -->
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div *ngIf="checktao" class="card">
+            <div class="card-header card-header-danger">
+              <h4 class="card-title">Hồ Sơ</h4>
+              <p class="card-category">Thêm Học Sinh Mới</p>
+            </div>
+            <div class="card-body">
+              <form [formGroup]="studentForm" novalidate>
+                <div class="row">
+  
+                  <div class="col-md-12">
+                      
+                    <mat-form-field class="example-full-width">
+                        <input formControlName="tenHocSinh" placeholder="Học và tên" matInput  #tenHocSinh>
+                      </mat-form-field>
+                  </div>
+  
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                      <mat-form-field class="example-full-width">
+                      <input class="form-control" placeholder="Ngày sinh" name="dp" size="60"
+                      [(ngModel)]="model" formControlName="ngaySinh" matInput ngbDatepicker #d="ngbDatepicker"
+                      #ngaySinh (click)="d.toggle()">
+                      </mat-form-field>
+                  </div>
+  
+                </div>
+               
+                <div class="row">
+                    <div class="col-md-12">
+                       
+                        <mat-radio-group aria-label="Select an option">
+                            <mat-radio-button  value="Nam" #gioiTinh>Nam</mat-radio-button>
+                            <mat-radio-button style="margin-left: 20px !important"  value="Nữ" #gioiTinh>Nữ</mat-radio-button>
+                          </mat-radio-group>
+                    </div>
+    
+                  </div>
+                  <div class="row">
+                      <div class="col-md-12">
+                          
+                          <mat-form-field class="example-full-width">
+                              <textarea matInput formControlName="diaChi" placeholder="Địa chỉ" #diaChi></textarea>
+                            </mat-form-field>
+                      </div>
+      
+                    </div>
+                <button  (click)="importexcel()"
+                 mat-raised-button type="submit" class="btn btn-danger pull-right">Importexcel</button>
+                <button  (click)="tao(tenHocSinh.value,gioiTinh.value,ngaySinh.value,diaChi.value,khoi.value,lop.value)"
+                [disabled]="studentForm.pristine || studentForm.invalid" mat-raised-button type="submit" class="btn btn-danger pull-right">Tạo</button>
+                <div class="clearfix"></div>
+                <input style="width: 320px;" type="file" class="form-control" (change)="uploadedFile($event)" placeholder="Upload file"
+                accept=".xlsx">
+  
+              </form>
+            </div>
+          </div>
+          <div *ngIf="checksua" class="card card-profile">
+              <div class="card-avatar" >
+                  <a href="javascript:void(0)">
+                      <img style="height: 150px" class="img" src="../../assets/img/faces/{{Student.hinh}}" />
+                  </a>
+                
+                 
+              </div>
+              <div class="card-body">
+                  <div>
+                      <input type="file" (change)="fileupdate($event)" placeholder="chưa có flie ..">
+                  </div>
+                  <div class="row">
+  
+                      <div class="col-md-12">
+                          
+                        <mat-form-field class="example-full-width">
+                            <input [(ngModel)]="Student.tenHocSinh" placeholder="Họ và tên" matInput  #tenHocSinh>
+                          </mat-form-field>
+                      </div>
+      
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                          <mat-form-field class="example-full-width">
+                            <input class="form-control" placeholder="{{Student.ngaySinh|date: 'dd/MM/yy'}}" name="dp" size="60"
+                            [(ngModel)]="Student.ngaySinh" formControlName="ngaySinh" matInput ngbDatepicker #d="ngbDatepicker"
+                            #ngaySinh (click)="d.toggle()">
+                          </mat-form-field>
+                      </div>
+      
+                    </div>
+                   
+                    <div class="row">
+                        <div class="col-md-12">
+                        
+                            <mat-radio-group [(ngModel)]="Student.gioiTinh">
+                                <mat-radio-button  value="Nam" #gioiTinh>Nam</mat-radio-button>
+                                <mat-radio-button style="margin-left: 20px!important" value="Nữ" #gioiTinh>Nữ</mat-radio-button>
+                              </mat-radio-group>
+                        </div>
+        
+                      </div>
+                      <div class="row">
+                          <div class="col-md-12">
+                              
+                              <mat-form-field class="example-full-width">
+                                  <textarea  [(ngModel)]="Student.diaChi" matInput placeholder="Địa Chỉ" #diaChi>{{Student.diaChi}}</textarea>
+                                </mat-form-field>
+                          </div>
+          
+                        </div>
+                    <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="openModal(template)">Xóa</button>
+                  <button mat-raised-button type="submit" class="btn btn-azure pull-right" (click)="sua(ngaySinh.value)">Cập nhật</button>
+                  <button mat-raised-button type="submit" class="btn btn-warning pull-right" (click)="back()">Trở lại</button>
+                  <div class="clearfix"></div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #template>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Xác thực yêu cầu</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>Bạn chắc chắn muốn xóa tài khoản này??</h5>
+      </div>
+      <div style="float: right;margin-right: 20px;margin-bottom: 10px" class="row">
+          <div class="col-md-8"></div>
+          <div  class="col-md-2"><button (click)="Xoa(lop.value)"style="font-size: 15px; width: 70px;height: 35px;border-radius: 10px;" class="btn btn-danger">Xóa</button></div>
+          <div  class="col-md-2" (click)="close()"><button style="font-size: 15px; width: 70px;height: 35px;border-radius: 10px;" class="btn btn-warning">Trở lại</button></div>
+      </div>
+    </ng-template>
