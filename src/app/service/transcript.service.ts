@@ -25,4 +25,7 @@ export class TranscriptService {
   createtranscript(data){
     return this.http.post('/api/route/transcript/create',data)
   }
+  update(data){
+    return this.http.put('/api/route/transcript/update',data)
+  }
 }

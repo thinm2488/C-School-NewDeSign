@@ -1,5 +1,349 @@
 <div class="main-content">
   <div class="container-fluid">
+
+    <div *ngIf="checksua" class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <div class="row">
+              <div class="col-md-12">
+                <h4 class="card-title ">Điểm Số</h4>
+                <p class="card-category">Nhập Điểm</p>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="card-body">
+            <div class="row">
+
+
+
+            </div>
+            <div class="row">
+
+              <div class="col-md-6">
+
+
+                <mat-form-field class="example-full-width">
+                  <mat-label>Môn Học: {{bangDiem.mon}}</mat-label>
+                  <input disabled placeholder="" matInput #mon>
+                </mat-form-field>
+
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Lớp: {{bangDiem.soHieu}}</mat-label>
+                  <input disabled placeholder="" matInput #lop>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="col-md-6">
+
+
+                <mat-form-field class="example-full-width">
+                  <mat-label>Họ Và Tên: {{bangDiem.tenHocSinh}}</mat-label>
+                  <input disabled placeholder="{{bangDiem.tenHocSinh}}" matInput #hovaten>
+                </mat-form-field>
+
+              </div>
+
+            </div>
+            <div class="table-responsive">
+              <table border="1" *ngIf="checktimeHKI" style="overflow-y: scroll;width: 100%" id="datatable"
+                class="table">
+                <thead>
+                  <tr>
+
+                    <th colspan="3">Điểm Miệng</th>
+                    <th colspan="3">Điểm 15p</th>
+                    <th colspan="3">Điểm 1 tiết</th>
+                    <th colspan="1">GK I</th>
+                    <th colspan="1">CK I</th>
+
+                    <th colspan="3">Điểm Miệng</th>
+                    <th colspan="3">Điểm 15p</th>
+                    <th colspan="3">Điểm 1 tiết</th>
+                    <th colspan="1">GK II</th>
+                    <th colspan="1">CK II</th>
+                    <th colspan="1">TBHK I</th>
+                    <th colspan="1">TBHK II</th>
+                    <th colspan="1">Cả năm</th>
+
+
+
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr>
+
+                    <td><input [(ngModel)]="bangDiem.diemmieng1" placeholder="{{bangDiem.diemmieng1}}"></td>
+                    <td><input [(ngModel)]="bangDiem.diemmieng2" name="diemmieng2"
+                        placeholder="{{bangDiem.diemmieng2}}"></td>
+                    <td><input [(ngModel)]="bangDiem.diemmieng3" name="diemmieng3"
+                        placeholder="{{bangDiem.diemmieng3}}"></td>
+
+
+                    <td><input [(ngModel)]="bangDiem.diem15p1" name="diem15p1" placeholder="{{bangDiem.diem15p1}}"></td>
+                    <td><input [(ngModel)]="bangDiem.diem15p2" name="diem15p2" placeholder="{{bangDiem.diem15p2}}"></td>
+                    <td><input [(ngModel)]="bangDiem.diem15p3" name="diem15p3" placeholder="{{bangDiem.diem15p3}}"></td>
+
+
+                    <td><input [(ngModel)]="bangDiem.diem1tiet1" name="diem1tiet1"
+                        placeholder="{{bangDiem.diem1tiet1}}"></td>
+                    <td><input [(ngModel)]="bangDiem.diem1tiet2" name="diem1tiet2"
+                        placeholder="{{bangDiem.diem1tiet2}}"></td>
+                    <td><input [(ngModel)]="bangDiem.diem1tiet3" name="diem1tiet3"
+                        placeholder="{{bangDiem.diem1tiet3}}"></td>
+
+                    <td><input [(ngModel)]="bangDiem.GKI" name="GKI" placeholder="{{bangDiem.GKI}}"></td>
+
+                    <td><input [(ngModel)]="bangDiem.CKI" name="CKI" placeholder="{{bangDiem.CKI}}"></td>
+
+
+
+                    <td><input disabled [(ngModel)]="bangDiem.diemmieng4" name="diemmieng4"
+                        placeholder="{{bangDiem.diemmieng4}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diemmieng5" name="diemmieng5"
+                        placeholder="{{bangDiem.diemmieng5}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diemmieng6" name="diemmieng6"
+                        placeholder="{{bangDiem.diemmieng6}}"></td>
+
+
+                    <td><input disabled [(ngModel)]="bangDiem.diem15p4" name="diem15p4"
+                        placeholder="{{bangDiem.diem15p4}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diem15p5" name="diem15p5"
+                        placeholder="{{bangDiem.diem15p5}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diem15p6" name="diem15p16"
+                        placeholder="{{bangDiem.diem15p6}}"></td>
+
+
+                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet4" name="diem1tiet4"
+                        placeholder="{{bangDiem.diem1tiet4}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet5" name="diem1tiet5"
+                        placeholder="{{bangDiem.diem1tiet5}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet6" name="diem1tiet6"
+                        placeholder="{{bangDiem.diem1tiet6}}"></td>
+
+                    <td><input disabled [(ngModel)]="bangDiem.GKII" name="GKII" placeholder="{{bangDiem.GKII}}"></td>
+
+                    <td><input disabled [(ngModel)]="bangDiem.CKII" name="CKII" placeholder="{{bangDiem.CKII}}"></td>
+
+                    <td><input disabled [(ngModel)]="bangDiem.TBHKI" name="CKII" placeholder="{{bangDiem.TBHKI}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.TBHKII" name="CKII" placeholder="{{bangDiem.TBHKII}}">
+                    </td>
+
+                    <td><input disabled [(ngModel)]="bangDiem.canam" name="canam" placeholder="{{bangDiem.canam}}"></td>
+
+
+                  </tr>
+
+                </tbody>
+              </table>
+              <table border="1" *ngIf="checktimeHKII" style="overflow-y: scroll;width: 100%" id="datatable"
+                class="table">
+                <thead>
+                  <tr>
+
+                    <th colspan="3">Điểm Miệng</th>
+                    <th colspan="3">Điểm 15p</th>
+                    <th colspan="3">Điểm 1 tiết</th>
+                    <th colspan="1">GK I</th>
+                    <th colspan="1">CK I</th>
+
+                    <th colspan="3">Điểm Miệng</th>
+                    <th colspan="3">Điểm 15p</th>
+                    <th colspan="3">Điểm 1 tiết</th>
+                    <th colspan="1">GK II</th>
+                    <th colspan="1">CK II</th>
+                    <th colspan="1">TBHK I</th>
+                    <th colspan="1">TBHK II</th>
+                    <th colspan="1">Cả năm</th>
+
+
+
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr>
+
+                    <td><input disabled [(ngModel)]="bangDiem.diemmieng1" placeholder="{{bangDiem.diemmieng1}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diemmieng2" name="diemmieng2"
+                        placeholder="{{bangDiem.diemmieng2}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diemmieng3" name="diemmieng3"
+                        placeholder="{{bangDiem.diemmieng3}}"></td>
+
+
+                    <td><input disabled [(ngModel)]="bangDiem.diem15p1" name="diem15p1"
+                        placeholder="{{bangDiem.diem15p1}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diem15p2" name="diem15p2"
+                        placeholder="{{bangDiem.diem15p2}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diem15p3" name="diem15p3"
+                        placeholder="{{bangDiem.diem15p3}}"></td>
+
+
+                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet1" name="diem1tiet1"
+                        placeholder="{{bangDiem.diem1tiet1}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet2" name="diem1tiet2"
+                        placeholder="{{bangDiem.diem1tiet2}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet3" name="diem1tiet3"
+                        placeholder="{{bangDiem.diem1tiet3}}"></td>
+
+                    <td><input disabled [(ngModel)]="bangDiem.GKI" name="GKI" placeholder="{{bangDiem.GKI}}"></td>
+
+                    <td><input disabled [(ngModel)]="bangDiem.CKI" name="CKI" placeholder="{{bangDiem.CKI}}"></td>
+
+
+
+                    <td><input [(ngModel)]="bangDiem.diemmieng4" name="diemmieng4"
+                        placeholder="{{bangDiem.diemmieng4}}"></td>
+                    <td><input [(ngModel)]="bangDiem.diemmieng5" name="diemmieng5"
+                        placeholder="{{bangDiem.diemmieng5}}"></td>
+                    <td><input [(ngModel)]="bangDiem.diemmieng6" name="diemmieng6"
+                        placeholder="{{bangDiem.diemmieng6}}"></td>
+
+
+                    <td><input [(ngModel)]="bangDiem.diem15p4" name="diem15p4" placeholder="{{bangDiem.diem15p4}}"></td>
+                    <td><input [(ngModel)]="bangDiem.diem15p5" name="diem15p5" placeholder="{{bangDiem.diem15p5}}"></td>
+                    <td><input [(ngModel)]="bangDiem.diem15p6" name="diem15p16" placeholder="{{bangDiem.diem15p6}}">
+                    </td>
+
+
+                    <td><input [(ngModel)]="bangDiem.diem1tiet4" name="diem1tiet4"
+                        placeholder="{{bangDiem.diem1tiet4}}"></td>
+                    <td><input [(ngModel)]="bangDiem.diem1tiet5" name="diem1tiet5"
+                        placeholder="{{bangDiem.diem1tiet5}}"></td>
+                    <td><input [(ngModel)]="bangDiem.diem1tiet6" name="diem1tiet6"
+                        placeholder="{{bangDiem.diem1tiet6}}"></td>
+
+                    <td><input [(ngModel)]="bangDiem.GKII" name="GKII" placeholder="{{bangDiem.GKII}}"></td>
+
+                    <td><input [(ngModel)]="bangDiem.CKII" name="CKII" placeholder="{{bangDiem.CKII}}"></td>
+
+                    <td><input [(ngModel)]="bangDiem.TBHKI" name="CKII" placeholder="{{bangDiem.TBHKI}}"></td>
+                    <td><input [(ngModel)]="bangDiem.TBHKII" name="CKII" placeholder="{{bangDiem.TBHKII}}"></td>
+
+                    <td><input [(ngModel)]="bangDiem.canam" name="canam" placeholder="{{bangDiem.canam}}"></td>
+
+
+                  </tr>
+
+                </tbody>
+              </table>
+
+              <table border="1" *ngIf="checkcanam" style="overflow-y: scroll;width: 100%" id="datatable" class="table">
+                <thead>
+                  <tr>
+
+                    <th colspan="3">Điểm Miệng</th>
+                    <th colspan="3">Điểm 15p</th>
+                    <th colspan="3">Điểm 1 tiết</th>
+                    <th colspan="1">GK I</th>
+                    <th colspan="1">CK I</th>
+
+                    <th colspan="3">Điểm Miệng</th>
+                    <th colspan="3">Điểm 15p</th>
+                    <th colspan="3">Điểm 1 tiết</th>
+                    <th colspan="1">GK II</th>
+                    <th colspan="1">CK II</th>
+                    <th colspan="1">TBHK I</th>
+                    <th colspan="1">TBHK II</th>
+                    <th colspan="1">Cả năm</th>
+
+
+
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr>
+
+                    <td><input disabled [(ngModel)]="bangDiem.diemmieng1" placeholder="{{bangDiem.diemmieng1}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diemmieng2" name="diemmieng2"
+                        placeholder="{{bangDiem.diemmieng2}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diemmieng3" name="diemmieng3"
+                        placeholder="{{bangDiem.diemmieng3}}"></td>
+
+
+                    <td><input disabled [(ngModel)]="bangDiem.diem15p1" name="diem15p1"
+                        placeholder="{{bangDiem.diem15p1}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diem15p2" name="diem15p2"
+                        placeholder="{{bangDiem.diem15p2}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diem15p3" name="diem15p3"
+                        placeholder="{{bangDiem.diem15p3}}"></td>
+
+
+                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet1" name="diem1tiet1"
+                        placeholder="{{bangDiem.diem1tiet1}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet2" name="diem1tiet2"
+                        placeholder="{{bangDiem.diem1tiet2}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet3" name="diem1tiet3"
+                        placeholder="{{bangDiem.diem1tiet3}}"></td>
+
+                    <td><input disabled [(ngModel)]="bangDiem.GKI" name="GKI" placeholder="{{bangDiem.GKI}}"></td>
+
+                    <td><input disabled [(ngModel)]="bangDiem.CKI" name="CKI" placeholder="{{bangDiem.CKI}}"></td>
+
+
+
+                    <td><input disabled [(ngModel)]="bangDiem.diemmieng4" name="diemmieng4"
+                        placeholder="{{bangDiem.diemmieng4}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diemmieng5" name="diemmieng5"
+                        placeholder="{{bangDiem.diemmieng5}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diemmieng6" name="diemmieng6"
+                        placeholder="{{bangDiem.diemmieng6}}"></td>
+
+
+                    <td><input disabled [(ngModel)]="bangDiem.diem15p4" name="diem15p4"
+                        placeholder="{{bangDiem.diem15p4}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diem15p5" name="diem15p5"
+                        placeholder="{{bangDiem.diem15p5}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diem15p6" name="diem15p16"
+                        placeholder="{{bangDiem.diem15p6}}">
+                    </td>
+
+
+                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet4" name="diem1tiet4"
+                        placeholder="{{bangDiem.diem1tiet4}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet5" name="diem1tiet5"
+                        placeholder="{{bangDiem.diem1tiet5}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet6" name="diem1tiet6"
+                        placeholder="{{bangDiem.diem1tiet6}}"></td>
+
+                    <td><input disabled [(ngModel)]="bangDiem.GKII" name="GKII" placeholder="{{bangDiem.GKII}}"></td>
+
+                    <td><input disabled [(ngModel)]="bangDiem.CKII" name="CKII" placeholder="{{bangDiem.CKII}}"></td>
+
+                    <td><input disabled [(ngModel)]="bangDiem.TBHKI" name="CKII" placeholder="{{bangDiem.TBHKI}}"></td>
+                    <td><input disabled [(ngModel)]="bangDiem.TBHKII" name="CKII" placeholder="{{bangDiem.TBHKII}}">
+                    </td>
+
+                    <td><input disabled [(ngModel)]="bangDiem.canam" name="canam" placeholder="{{bangDiem.canam}}"></td>
+
+
+                  </tr>
+
+                </tbody>
+              </table>
+
+
+
+              <button mat-raised-button type="submit" class="btn btn-azure pull-right" (click)="insertmark()">Cập
+                nhật</button>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
     <div class="row">
       <div class="col-md-12">
         <div class="card">
@@ -120,342 +464,7 @@
 
 
     </div>
-    <div *ngIf="checksua" class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header card-header-danger">
-            <div class="row">
-              <div class="col-md-12">
-                <h4 class="card-title ">Điểm Số</h4>
-                <p class="card-category">Nhập Điểm</p>
-              </div>
-         
-            </div>
 
-          </div>
-          <div class="card-body">
-            <div class="row">
-
-
-            
-            </div>
-            <div class="row">
-
-              <div class="col-md-6">
-
-
-                <mat-form-field class="example-full-width">
-                  <mat-label>Môn Học: {{bangDiem.mon}}</mat-label>
-                  <input disabled placeholder="" matInput #mon>
-                </mat-form-field>
-
-              </div>
-              <div class="col-md-6">
-                <mat-form-field class="example-full-width">
-                  <mat-label>Lớp: {{bangDiem.soHieu}}</mat-label>
-                  <input disabled placeholder="" matInput #lop>
-                </mat-form-field>
-              </div>
-            </div>
-            <div class="row">
-
-              <div class="col-md-6">
-
-
-                <mat-form-field class="example-full-width">
-                  <mat-label>Họ Và Tên: {{bangDiem.tenHocSinh}}</mat-label>
-                  <input disabled placeholder="{{bangDiem.tenHocSinh}}" matInput #hovaten>
-                </mat-form-field>
-
-              </div>
-             
-            </div>
-            <div class="table-responsive">
-              <table border="1"  *ngIf="checktimeHKI" style="overflow-y: scroll;width: 100%" id="datatable" class="table">
-                <thead>
-                  <tr>
-
-                    <th colspan="3">Điểm Miệng</th>
-                    <th colspan="3">Điểm 15p</th>
-                    <th colspan="3">Điểm 1 tiết</th>
-                    <th colspan="1">GK I</th>
-                    <th colspan="1">CK I</th>
-
-                    <th colspan="3">Điểm Miệng</th>
-                    <th colspan="3">Điểm 15p</th>
-                    <th colspan="3">Điểm 1 tiết</th>
-                    <th colspan="1">GK II</th>
-                    <th colspan="1">CK II</th>
-                    <th colspan="1">TBHK I</th>
-                    <th colspan="1">TBHK II</th>
-                    <th colspan="1">Cả năm</th>
-
-              
-
-                  </tr>
-                </thead>
-                <tbody>
-
-                  <tr>
-
-                    <td><input [(ngModel)]="bangDiem.diemmieng1" placeholder="{{bangDiem.diemmieng1}}"></td>
-                    <td><input [(ngModel)]="bangDiem.diemmieng2" name="diemmieng2"
-                        placeholder="{{bangDiem.diemmieng2}}"></td>
-                    <td><input [(ngModel)]="bangDiem.diemmieng3" name="diemmieng3"
-                        placeholder="{{bangDiem.diemmieng3}}"></td>
-
-
-                    <td><input [(ngModel)]="bangDiem.diem15p1" name="diem15p1" placeholder="{{bangDiem.diem15p1}}"></td>
-                    <td><input [(ngModel)]="bangDiem.diem15p2" name="diem15p2" placeholder="{{bangDiem.diem15p2}}"></td>
-                    <td><input [(ngModel)]="bangDiem.diem15p3" name="diem15p3" placeholder="{{bangDiem.diem15p3}}"></td>
-
-
-                    <td><input [(ngModel)]="bangDiem.diem1tiet1" name="diem1tiet1"
-                        placeholder="{{bangDiem.diem1tiet1}}"></td>
-                    <td><input [(ngModel)]="bangDiem.diem1tiet2" name="diem1tiet2"
-                        placeholder="{{bangDiem.diem1tiet2}}"></td>
-                    <td><input [(ngModel)]="bangDiem.diem1tiet3" name="diem1tiet3"
-                        placeholder="{{bangDiem.diem1tiet3}}"></td>
-
-                    <td><input [(ngModel)]="bangDiem.GKI" name="GKI" placeholder="{{bangDiem.GKI}}"></td>
-
-                    <td><input [(ngModel)]="bangDiem.CKI" name="CKI" placeholder="{{bangDiem.CKI}}"></td>
-
-
-
-                    <td><input disabled [(ngModel)]="bangDiem.diemmieng4" name="diemmieng4"
-                        placeholder="{{bangDiem.diemmieng4}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diemmieng5" name="diemmieng5"
-                        placeholder="{{bangDiem.diemmieng5}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diemmieng6" name="diemmieng6"
-                        placeholder="{{bangDiem.diemmieng6}}"></td>
-
-
-                    <td><input disabled [(ngModel)]="bangDiem.diem15p4" name="diem15p4"
-                        placeholder="{{bangDiem.diem15p4}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diem15p5" name="diem15p5"
-                        placeholder="{{bangDiem.diem15p5}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diem15p6" name="diem15p16"
-                        placeholder="{{bangDiem.diem15p6}}"></td>
-
-
-                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet4" name="diem1tiet4"
-                        placeholder="{{bangDiem.diem1tiet4}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet5" name="diem1tiet5"
-                        placeholder="{{bangDiem.diem1tiet5}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet6" name="diem1tiet6"
-                        placeholder="{{bangDiem.diem1tiet6}}"></td>
-
-                    <td><input disabled [(ngModel)]="bangDiem.GKII" name="GKII" placeholder="{{bangDiem.GKII}}"></td>
-
-                    <td><input disabled [(ngModel)]="bangDiem.CKII" name="CKII" placeholder="{{bangDiem.CKII}}"></td>
-
-                    <td><input disabled [(ngModel)]="bangDiem.TBHKI" name="CKII" placeholder="{{bangDiem.TBHKI}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.TBHKII" name="CKII" placeholder="{{bangDiem.TBHKII}}">
-                    </td>
-
-                    <td><input disabled [(ngModel)]="bangDiem.canam" name="canam" placeholder="{{bangDiem.canam}}"></td>
-
-
-                  </tr>
-
-                </tbody>
-              </table>
-              <table border="1" *ngIf="checktimeHKII" style="overflow-y: scroll;width: 100%" id="datatable" class="table">
-                <thead>
-                  <tr>
-
-                    <th colspan="3">Điểm Miệng</th>
-                    <th colspan="3">Điểm 15p</th>
-                    <th colspan="3">Điểm 1 tiết</th>
-                    <th colspan="1">GK I</th>
-                    <th colspan="1">CK I</th>
-
-                    <th colspan="3">Điểm Miệng</th>
-                    <th colspan="3">Điểm 15p</th>
-                    <th colspan="3">Điểm 1 tiết</th>
-                    <th colspan="1">GK II</th>
-                    <th colspan="1">CK II</th>
-                    <th colspan="1">TBHK I</th>
-                    <th colspan="1">TBHK II</th>
-                    <th colspan="1">Cả năm</th>
-
-  
-
-                  </tr>
-                </thead>
-                <tbody>
-
-                  <tr>
-
-                    <td><input disabled [(ngModel)]="bangDiem.diemmieng1" placeholder="{{bangDiem.diemmieng1}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diemmieng2" name="diemmieng2"
-                        placeholder="{{bangDiem.diemmieng2}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diemmieng3" name="diemmieng3"
-                        placeholder="{{bangDiem.diemmieng3}}"></td>
-
-
-                    <td><input disabled [(ngModel)]="bangDiem.diem15p1" name="diem15p1"
-                        placeholder="{{bangDiem.diem15p1}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diem15p2" name="diem15p2"
-                        placeholder="{{bangDiem.diem15p2}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diem15p3" name="diem15p3"
-                        placeholder="{{bangDiem.diem15p3}}"></td>
-
-
-                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet1" name="diem1tiet1"
-                        placeholder="{{bangDiem.diem1tiet1}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet2" name="diem1tiet2"
-                        placeholder="{{bangDiem.diem1tiet2}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet3" name="diem1tiet3"
-                        placeholder="{{bangDiem.diem1tiet3}}"></td>
-
-                    <td><input disabled [(ngModel)]="bangDiem.GKI" name="GKI" placeholder="{{bangDiem.GKI}}"></td>
-
-                    <td><input disabled [(ngModel)]="bangDiem.CKI" name="CKI" placeholder="{{bangDiem.CKI}}"></td>
-
-
-
-                    <td><input [(ngModel)]="bangDiem.diemmieng4" name="diemmieng4"
-                        placeholder="{{bangDiem.diemmieng4}}"></td>
-                    <td><input [(ngModel)]="bangDiem.diemmieng5" name="diemmieng5"
-                        placeholder="{{bangDiem.diemmieng5}}"></td>
-                    <td><input [(ngModel)]="bangDiem.diemmieng6" name="diemmieng6"
-                        placeholder="{{bangDiem.diemmieng6}}"></td>
-
-
-                    <td><input [(ngModel)]="bangDiem.diem15p4" name="diem15p4" placeholder="{{bangDiem.diem15p4}}"></td>
-                    <td><input [(ngModel)]="bangDiem.diem15p5" name="diem15p5" placeholder="{{bangDiem.diem15p5}}"></td>
-                    <td><input [(ngModel)]="bangDiem.diem15p6" name="diem15p16" placeholder="{{bangDiem.diem15p6}}">
-                    </td>
-
-
-                    <td><input [(ngModel)]="bangDiem.diem1tiet4" name="diem1tiet4"
-                        placeholder="{{bangDiem.diem1tiet4}}"></td>
-                    <td><input [(ngModel)]="bangDiem.diem1tiet5" name="diem1tiet5"
-                        placeholder="{{bangDiem.diem1tiet5}}"></td>
-                    <td><input [(ngModel)]="bangDiem.diem1tiet6" name="diem1tiet6"
-                        placeholder="{{bangDiem.diem1tiet6}}"></td>
-
-                    <td><input [(ngModel)]="bangDiem.GKII" name="GKII" placeholder="{{bangDiem.GKII}}"></td>
-
-                    <td><input [(ngModel)]="bangDiem.CKII" name="CKII" placeholder="{{bangDiem.CKII}}"></td>
-
-                    <td><input [(ngModel)]="bangDiem.TBHKI" name="CKII" placeholder="{{bangDiem.TBHKI}}"></td>
-                    <td><input [(ngModel)]="bangDiem.TBHKII" name="CKII" placeholder="{{bangDiem.TBHKII}}"></td>
-
-                    <td><input [(ngModel)]="bangDiem.canam" name="canam" placeholder="{{bangDiem.canam}}"></td>
-
-
-                  </tr>
-
-                </tbody>
-              </table>
-
-              <table border="1" *ngIf="checkcanam" style="overflow-y: scroll;width: 100%" id="datatable" class="table">
-                <thead>
-                  <tr>
-
-                    <th colspan="3">Điểm Miệng</th>
-                    <th colspan="3">Điểm 15p</th>
-                    <th colspan="3">Điểm 1 tiết</th>
-                    <th colspan="1">GK I</th>
-                    <th colspan="1">CK I</th>
-
-                    <th colspan="3">Điểm Miệng</th>
-                    <th colspan="3">Điểm 15p</th>
-                    <th colspan="3">Điểm 1 tiết</th>
-                    <th colspan="1">GK II</th>
-                    <th colspan="1">CK II</th>
-                    <th colspan="1">TBHK I</th>
-                    <th colspan="1">TBHK II</th>
-                    <th colspan="1">Cả năm</th>
-
-  
-
-                  </tr>
-                </thead>
-                <tbody>
-
-                  <tr>
-
-                    <td><input disabled [(ngModel)]="bangDiem.diemmieng1" placeholder="{{bangDiem.diemmieng1}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diemmieng2" name="diemmieng2"
-                        placeholder="{{bangDiem.diemmieng2}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diemmieng3" name="diemmieng3"
-                        placeholder="{{bangDiem.diemmieng3}}"></td>
-
-
-                    <td><input disabled [(ngModel)]="bangDiem.diem15p1" name="diem15p1"
-                        placeholder="{{bangDiem.diem15p1}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diem15p2" name="diem15p2"
-                        placeholder="{{bangDiem.diem15p2}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diem15p3" name="diem15p3"
-                        placeholder="{{bangDiem.diem15p3}}"></td>
-
-
-                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet1" name="diem1tiet1"
-                        placeholder="{{bangDiem.diem1tiet1}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet2" name="diem1tiet2"
-                        placeholder="{{bangDiem.diem1tiet2}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet3" name="diem1tiet3"
-                        placeholder="{{bangDiem.diem1tiet3}}"></td>
-
-                    <td><input disabled [(ngModel)]="bangDiem.GKI" name="GKI" placeholder="{{bangDiem.GKI}}"></td>
-
-                    <td><input disabled [(ngModel)]="bangDiem.CKI" name="CKI" placeholder="{{bangDiem.CKI}}"></td>
-
-
-
-                    <td><input disabled [(ngModel)]="bangDiem.diemmieng4" name="diemmieng4"
-                        placeholder="{{bangDiem.diemmieng4}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diemmieng5" name="diemmieng5"
-                        placeholder="{{bangDiem.diemmieng5}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diemmieng6" name="diemmieng6"
-                        placeholder="{{bangDiem.diemmieng6}}"></td>
-
-
-                    <td><input disabled [(ngModel)]="bangDiem.diem15p4" name="diem15p4" placeholder="{{bangDiem.diem15p4}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diem15p5" name="diem15p5" placeholder="{{bangDiem.diem15p5}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diem15p6" name="diem15p16" placeholder="{{bangDiem.diem15p6}}">
-                    </td>
-
-
-                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet4" name="diem1tiet4"
-                        placeholder="{{bangDiem.diem1tiet4}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet5" name="diem1tiet5"
-                        placeholder="{{bangDiem.diem1tiet5}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.diem1tiet6" name="diem1tiet6"
-                        placeholder="{{bangDiem.diem1tiet6}}"></td>
-
-                    <td><input disabled [(ngModel)]="bangDiem.GKII" name="GKII" placeholder="{{bangDiem.GKII}}"></td>
-
-                    <td><input disabled [(ngModel)]="bangDiem.CKII" name="CKII" placeholder="{{bangDiem.CKII}}"></td>
-
-                    <td><input disabled [(ngModel)]="bangDiem.TBHKI" name="CKII" placeholder="{{bangDiem.TBHKI}}"></td>
-                    <td><input disabled [(ngModel)]="bangDiem.TBHKII" name="CKII" placeholder="{{bangDiem.TBHKII}}"></td>
-
-                    <td><input disabled [(ngModel)]="bangDiem.canam" name="canam" placeholder="{{bangDiem.canam}}"></td>
-
-
-                  </tr>
-
-                </tbody>
-              </table>
-
-
-
-              <button mat-raised-button type="submit" class="btn btn-azure pull-right" (click)="insertmark()">Cập nhật</button>
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-    </div>
 
   </div>
 </div>

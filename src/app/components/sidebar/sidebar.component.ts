@@ -15,6 +15,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/notification', title: 'Quản Lý Thông Báo',  icon:'notifications', class: '' },
     { path: '/dayoff', title: 'Xét Duyệt Xin Phép',  icon:'calendar_today', class: '' },
     { path: '/transcript', title: 'Quản Lý Điểm',  icon:'assignment', class: '' },
+    { path: '/transcriptdetail', title: 'Quản Lớp Chủ Nhiệm',  icon:'assignment', class: '' },
 
     // { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
     // { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },

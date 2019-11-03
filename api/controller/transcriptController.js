@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Transcript = mongoose.model('Transcript');
+const moment =require('moment')
 // const Transcript = mongoose.model('Teacher');
 // const nodemailer = require('nodemailer')
 var jwt = require('jsonwebtoken');
@@ -41,7 +42,9 @@ const getalltranscriptbysub = async function (data) {
                 tenGV: element.tenGV,
                 soHieu: element.soHieu,
                 HKI: element.HKI.diemAnh,
-                HKII: element.HKII.diemAnh
+                HKII: element.HKII.diemAnh,
+                TBCN: element.TBMCN,
+                xepLoai:element.xepLoai
             }
 
             transcript.push(obj)
@@ -57,7 +60,9 @@ const getalltranscriptbysub = async function (data) {
                 tenGV: element.tenGV,
                 soHieu: element.soHieu,
                 HKI: element.HKI.diemToan,
-                HKII: element.HKII.diemToan
+                HKII: element.HKII.diemToan,
+                TBCN: element.TBMCN,
+                xepLoai:element.xepLoai
             }
 
             transcript.push(obj)
@@ -72,7 +77,9 @@ const getalltranscriptbysub = async function (data) {
                 tenGV: element.tenGV,
                 soHieu: element.soHieu,
                 HKI: element.HKI.diemVan,
-                HKII: element.HKII.diemVan
+                HKII: element.HKII.diemVan,
+                TBCN: element.TBMCN,
+                xepLoai:element.xepLoai,
             }
 
             transcript.push(obj)
@@ -87,7 +94,9 @@ const getalltranscriptbysub = async function (data) {
                 tenGV: element.tenGV,
                 soHieu: element.soHieu,
                 HKI: element.HKI.diemSinh,
-                HKII: element.HKII.diemSinh
+                HKII: element.HKII.diemSinh,
+                TBCN: element.TBMCN,
+                xepLoai:element.xepLoai
             }
 
             transcript.push(obj)
@@ -102,7 +111,9 @@ const getalltranscriptbysub = async function (data) {
                 tenGV: element.tenGV,
                 soHieu: element.soHieu,
                 HKI: element.HKI.diemSu,
-                HKII: element.HKII.diemSu
+                HKII: element.HKII.diemSu,
+                TBCN: element.TBMCN,
+                xepLoai:element.xepLoai
             }
 
             transcript.push(obj)
@@ -117,7 +128,9 @@ const getalltranscriptbysub = async function (data) {
                 tenGV: element.tenGV,
                 soHieu: element.soHieu,
                 HKI: element.HKI.diemDia,
-                HKII: element.HKII.diemDia
+                HKII: element.HKII.diemDia,
+                TBCN: element.TBMCN,
+                xepLoai:element.xepLoai
             }
 
             transcript.push(obj)
@@ -132,7 +145,9 @@ const getalltranscriptbysub = async function (data) {
                 tenGV: element.tenGV,
                 soHieu: element.soHieu,
                 HKI: element.HKI.diemLy,
-                HKII: element.HKII.diemLy
+                HKII: element.HKII.diemLy,
+                TBCN: element.TBMCN,
+                xepLoai:element.xepLoai
             }
 
             transcript.push(obj)
@@ -147,7 +162,9 @@ const getalltranscriptbysub = async function (data) {
                 tenGV: element.tenGV,
                 soHieu: element.soHieu,
                 HKI: element.HKI.diemHoa,
-                HKII: element.HKII.diemHoa
+                HKII: element.HKII.diemHoa,
+                TBCN: element.TBMCN,
+                xepLoai:element.xepLoai
             }
 
             transcript.push(obj)
@@ -162,7 +179,9 @@ const getalltranscriptbysub = async function (data) {
                 tenGV: element.tenGV,
                 soHieu: element.soHieu,
                 HKI: element.HKI.diemGDCD,
-                HKII: element.HKII.diemGDCD
+                HKII: element.HKII.diemGDCD,
+                TBCN: element.TBMCN,
+                xepLoai:element.xepLoai
             }
 
             transcript.push(obj)
@@ -177,7 +196,9 @@ const getalltranscriptbysub = async function (data) {
                 tenGV: element.tenGV,
                 soHieu: element.soHieu,
                 HKI: element.HKI.diemCongNghe,
-                HKII: element.HKII.diemCongNghe
+                HKII: element.HKII.diemCongNghe,
+                TBCN: element.TBMCN,
+                xepLoai:element.xepLoai
             }
 
             transcript.push(obj)
@@ -192,7 +213,9 @@ const getalltranscriptbysub = async function (data) {
                 tenGV: element.tenGV,
                 soHieu: element.soHieu,
                 HKI: element.HKI.diemTheDuc,
-                HKII: element.HKII.diemTheDuc
+                HKII: element.HKII.diemTheDuc,
+                TBCN: element.TBMCN,
+                xepLoai:element.xepLoai
             }
 
             transcript.push(obj)
@@ -207,7 +230,9 @@ const getalltranscriptbysub = async function (data) {
                 tenGV: element.tenGV,
                 soHieu: element.soHieu,
                 HKI: element.HKI.diemTin,
-                HKII: element.HKII.diemTin
+                HKII: element.HKII.diemTin,
+                TBCN: element.TBMCN,
+                xepLoai:element.xepLoai
             }
 
             transcript.push(obj)
@@ -222,7 +247,9 @@ const getalltranscriptbysub = async function (data) {
                 tenGV: element.tenGV,
                 soHieu: element.soHieu,
                 HKI: element.HKI.diemMyThuat,
-                HKII: element.HKII.diemMyThuat
+                HKII: element.HKII.diemMyThuat,
+                TBCN: element.TBMCN,
+                xepLoai:element.xepLoai
             }
 
             transcript.push(obj)
@@ -1102,10 +1129,15 @@ const inserttranscript = async function (data) {
             }
 
             //Xếp hạng
-            let listtranscript = Transcript.find().sort({TBCN:1})
+            let listtranscript = await Transcript.find({soHieu:transcript.soHieu}).sort({TBMCN:-1})
             for (let i=0;i<=listtranscript.length;i++){
-                listtranscript[i].xepHang=[i+1]
-                await listtranscript[i].save()
+              
+                if(transcript.idHocSinh==listtranscript[i].idHocSinh){
+                    transcript.xepHang=i+1
+                    await transcript.save()
+                }
+               
+               
             }
             await transcript.save()
             
@@ -1421,7 +1453,55 @@ const importexcel = async function (data) {
 
 
 
+const updatecomment = async function (data) {
 
+    let transcript = await Transcript.findOne({ idHocSinh: data.idHocSinh });
+
+    if(transcript){
+        let curentdate=new Date()
+        let mounth=moment( curentdate).format("MM")
+        if(mounth==01){
+            transcript.nhanXet.thang1=data.nhanxet
+        }
+        if(mounth==02){
+            transcript.nhanXet.thang2=data.nhanxet
+        }
+        if(mounth==03){
+            transcript.nhanXet.thang3=data.nhanxet
+        }
+        if(mounth==04){
+            transcript.nhanXet.thang4=data.nhanxet
+        }
+        if(mounth==05){
+            transcript.nhanXet.thang5=data.nhanxet
+        }
+        if(mounth==09){
+            transcript.nhanXet.thang9=data.nhanxet
+        }
+        if(mounth==10){
+            transcript.nhanXet.thang10=data.nhanxet
+        }
+        if(mounth==11){
+            transcript.nhanXet.thang11=data.nhanxet
+        }
+        if(mounth==12){
+            transcript.nhanXet.thang12=data.nhanxet
+        }
+
+        transcript.nhanXet.caNam=data.nhanxet
+        await transcript.save();
+        return {
+        transcript,
+        status: 200
+    }
+    }else{
+        return{message:"Không có bảng điểm của học sinh này"} 
+    }
+    
+
+
+
+}
 
 
 module.exports = {
@@ -1430,6 +1510,7 @@ module.exports = {
     getalltranscript: getalltranscript,
     gettranscriptsub: gettranscriptsub,
     inserttranscript: inserttranscript,
-    importexcel: importexcel
+    importexcel: importexcel,
+    updatecomment:updatecomment
 
 }

@@ -13,6 +13,7 @@ import { StudentComponent } from '../../student/student.component';
 import { NotificationComponent } from '../../notification/notification.component';
 import { DayoffComponent } from '../../dayoff/dayoff.component';
 import { TranscriptComponent } from '../../transcript/transcript.component';
+import { FulltranscriptComponent } from '../../fulltranscript/fulltranscript.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -64,7 +65,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notification',  component: NotificationComponent },
     { path: 'dayoff',  component: DayoffComponent },
     { path: 'transcript',  component: TranscriptComponent },
-    { path: 'table-list',     component: TableListComponent },
+    { path: 'transcriptdetail',     component: FulltranscriptComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },

@@ -42,6 +42,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NotificationComponent } from './notification/notification.component';
 import { DayoffComponent } from './dayoff/dayoff.component';
 import { TranscriptComponent } from './transcript/transcript.component';
+import { FulltranscriptComponent } from './fulltranscript/fulltranscript.component';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -67,6 +68,7 @@ import { TranscriptComponent } from './transcript/transcript.component';
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
+    // FulltranscriptComponent,
     // TranscriptComponent,
    
     

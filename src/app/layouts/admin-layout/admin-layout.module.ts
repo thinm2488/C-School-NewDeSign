@@ -18,6 +18,8 @@ import { NotificationComponent } from '../../notification/notification.component
 import { DayoffComponent } from '../../dayoff/dayoff.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FulltranscriptComponent } from '../../fulltranscript/fulltranscript.component';
+
 import {
   MatButtonModule,
   MatInputModule,
@@ -57,7 +59,8 @@ import { TranscriptComponent } from '../../transcript/transcript.component';
     StudentComponent,
     NotificationComponent,
     DayoffComponent,
-    TranscriptComponent
+    TranscriptComponent,
+    FulltranscriptComponent
   ]
 })
 

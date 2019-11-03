@@ -1,0 +1,727 @@
+<div class="main-content">
+  <div class="container-fluid">
+   
+   <div *ngIf="checksua"  class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-danger">
+              <div class="row">
+                <div class="col-md-6">
+                  <h4 class="card-title ">Lớp Chủ Nhiệm</h4>
+                  <p class="card-category">Danh Sách Học Sinh Lớp Chủ Nhiệm</p>
+                </div>
+                <div class="col-md-6">
+  
+                  <div class="row">
+                    <div class="col-md-3" style="padding: unset">
+                      <i style="margin-top:10px; float: right;" _ngcontent-biw-c3="" class="material-icons">search</i>
+                    </div>
+                    <div class="col-md-9" style="padding-left:unset">
+                      <input class="material-icons" style="color: white" class="form-control" type="text" name="search"
+                        [(ngModel)]="searchText" autocomplete="off" placeholder=" search">
+                    </div>
+                  </div>
+  
+  
+                </div>
+              </div>
+             
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12">
+                   
+                  <!-- <mat-label>{{bangDiem.tenHocSinh}}</mat-label> -->
+                  <mat-form-field class="example-full-width">
+                    <input disabled  placeholder="{{bangDiem.tenHocSinh}}" matInput  #tenHocSinh>
+                  </mat-form-field>
+                </div>
+               
+              </div>
+  
+              <div class="table-responsive">
+                  <table style="width: 100%"  border="1">
+                      <tr>
+                          <th rowspan="2">STT</th>
+                          <th rowspan="2">Môn Học</th>
+                          <th colspan="5">Điểm HKI</th>
+                          <th colspan="5">Điểm HKII</th>
+                          <th rowspan="2">TBHKI</th>
+                          <th rowspan="2">TBHKII</th>
+                          <th rowspan="2">Cả Năm</th>
+                      </tr>
+      
+                      <tr>
+                          <td >Miệng</td>
+                          <td >15p</td>
+                          <td >1 Tiết</td>
+                          <td >Giữa Kỳ</td>
+                          <td >Cuối Kỳ</td>
+                          <td >Miệng</td>
+                          <td>15p</td>
+                          <td >1 Tiết</td>
+                          <td>Giữa Kỳ</td>
+                          <td >Cuối Kỳ</td>
+      
+                      </tr>
+                     
+                      <tr >
+                          <td>1</td>
+                          <td>Văn</td>
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemVan.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemVan.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKI.diemVan.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKI.diemVan.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKI.diemVan.diemCuoiKy}}</td>
+      
+      
+                          <!-- HKII -->
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemVan.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKII.diemVan.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemVan.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKII.diemVan.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKII.diemVan.diemCuoiKy}}</td>
+                          <td>{{bangDiem.HKI.diemVan.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemVan.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemVan.TBCN}}</td>
+      
+                      </tr>
+                        
+                   
+                        
+                      <tr >
+                          <td>2</td>
+                          <td>Toán</td>
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemToan.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemToan.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKI.diemToan.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKI.diemToan.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKI.diemToan.diemCuoiKy}}</td>
+      
+      
+                          <!-- HKII -->
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemToan.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKII.diemToan.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemToan.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKII.diemToan.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKII.diemToan.diemCuoiKy}}</td>
+                          <td>{{bangDiem.HKI.diemToan.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemToan.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemToan.TBCN}}</td>
+                      </tr>
+                        
+                      <tr >
+                          <td>3</td>
+                          <td>Anh</td>
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemAnh.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemAnh.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKI.diemAnh.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKI.diemAnh.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKI.diemAnh.diemCuoiKy}}</td>
+      
+      
+                          <!-- HKII -->
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemAnh.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKII.diemAnh.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemAnh.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKII.diemAnh.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKII.diemAnh.diemCuoiKy}}</td>
+                          <td>{{bangDiem.HKI.diemAnh.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemAnh.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemAnh.TBCN}}</td>
+      
+                      </tr>
+                        
+                      <tr >
+                          <td>4</td>
+                          <td>Lý</td>
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemLy.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemLy.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKI.diemLy.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKI.diemLy.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKI.diemLy.diemCuoiKy}}</td>
+      
+      
+                          <!-- HKII -->
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemLy.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKII.diemLy.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemLy.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKII.diemLy.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKII.diemLy.diemCuoiKy}}</td>
+                          <td>{{bangDiem.HKI.diemLy.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemLy.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemLy.TBCN}}</td>
+      
+      
+                      </tr>
+                        
+                      <tr >
+                          <td>5</td>
+                          <td>Hóa</td>
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemHoa.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemHoa.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKI.diemHoa.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKI.diemHoa.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKI.diemHoa.diemCuoiKy}}</td>
+      
+      
+                          <!-- HKII -->
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemHoa.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKII.diemHoa.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemHoa.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKII.diemHoa.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKII.diemHoa.diemCuoiKy}}</td>
+                          <td>{{bangDiem.HKI.diemHoa.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemHoa.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemHoa.TBCN}}</td>
+      
+                      </tr>
+                        
+                      <tr >
+                          <td>6</td>
+                          <td>Sinh</td>
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemSinh.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemSinh.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKI.diemSinh.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKI.diemSinh.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKI.diemSinh.diemCuoiKy}}</td>
+      
+      
+                          <!-- HKII -->
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemSinh.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKII.diemSinh.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemSinh.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKII.diemSinh.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKII.diemSinh.diemCuoiKy}}</td>
+                          <td>{{bangDiem.HKI.diemSinh.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemSinh.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemSinh.TBCN}}</td>
+                      </tr>
+                        
+                      <tr >
+                          <td>7</td>
+                          <td>Sử</td>
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemSu.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemSu.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKI.diemSu.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKI.diemSu.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKI.diemSu.diemCuoiKy}}</td>
+      
+      
+                          <!-- HKII -->
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemSu.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKII.diemSu.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemSu.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKII.diemSu.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKII.diemSu.diemCuoiKy}}</td>
+                          <td>{{bangDiem.HKI.diemSu.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemSu.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemSu.TBCN}}</td>
+      
+                      </tr>
+                        
+                      <tr >
+                          <td>8</td>
+                          <td>Địa</td>
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemDia.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemDia.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKI.diemDia.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKI.diemDia.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKI.diemDia.diemCuoiKy}}</td>
+      
+      
+                          <!-- HKII -->
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemDia.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKII.diemDia.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemDia.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKII.diemDia.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKII.diemDia.diemCuoiKy}}</td>
+                          <td>{{bangDiem.HKI.diemDia.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemDia.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemDia.TBCN}}</td>
+      
+                      </tr>
+                        
+                      <tr >
+                          <td>9</td>
+                          <td>Công nghệ</td>
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemCongNghe.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemCongNghe.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKI.diemCongNghe.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKI.diemCongNghe.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKI.diemCongNghe.diemCuoiKy}}</td>
+      
+      
+                          <!-- HKII -->
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemCongNghe.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKII.diemCongNghe.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemCongNghe.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKII.diemCongNghe.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKII.diemCongNghe.diemCuoiKy}}</td>
+                          <td>{{bangDiem.HKI.diemCongNghe.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemCongNghe.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemCongNghe.TBCN}}</td>
+      
+                      </tr>
+                        
+                      <tr >
+                          <td>10</td>
+                          <td>Tin</td>
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemTin.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemTin.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKI.diemTin.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKI.diemTin.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKI.diemTin.diemCuoiKy}}</td>
+      
+      
+                          <!-- HKII -->
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemTin.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKII.diemTin.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemTin.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKII.diemTin.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKII.diemTin.diemCuoiKy}}</td>
+                          <td>{{bangDiem.HKI.diemTin.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemTin.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemTin.TBCN}}</td>
+                      </tr>
+                      <tr >
+                          <td>11</td>
+                          <td>GDCD</td>
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemGDCD.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemGDCD.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKI.diemGDCD.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKI.diemGDCD.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKI.diemGDCD.diemCuoiKy}}</td>
+      
+      
+                          <!-- HKII -->
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemGDCD.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKII.diemGDCD.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemGDCD.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKII.diemGDCD.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKII.diemGDCD.diemCuoiKy}}</td>
+                          <td>{{bangDiem.HKI.diemGDCD.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemGDCD.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemGDCD.TBCN}}</td>
+      
+                      </tr>
+                      <tr >
+                          <td>12</td>
+                          <td>Mỹ Thuật</td>
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemMyThuat.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemMyThuat.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKI.diemMyThuat.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKI.diemMyThuat.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKI.diemMyThuat.diemCuoiKy}}</td>
+      
+      
+                          <!-- HKII -->
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemMyThuat.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKII.diemMyThuat.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemMyThuat.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKII.diemMyThuat.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKII.diemMyThuat.diemCuoiKy}}</td>
+                          <td>{{bangDiem.HKI.diemMyThuat.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemMyThuat.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemMyThuat.TBCN}}</td>
+      
+      
+                      </tr>
+                      <tr >
+                          
+                          <td>13</td>
+                          <td>Thể Dục</td>
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemTheDuc.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKI.diemTheDuc.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKI.diemTheDuc.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKI.diemTheDuc.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKI.diemTheDuc.diemCuoiKy}}</td> 
+      
+      
+                          <!-- HKII -->
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemTheDuc.diemMieng">{{diem.diem}}&emsp;</label></td>
+                       
+      
+                          <td><label *ngFor="let diem of bangDiem.HKII.diemTheDuc.diem15p">{{diem.diem}}&emsp;</label></td>
+                         
+      
+                          <td ><label *ngFor="let diem of bangDiem.HKII.diemTheDuc.diem1tiet">{{diem.diem}}&emsp;</label></td>
+                        
+      
+                          <td>{{bangDiem.HKII.diemTheDuc.diemGiuaKy}}</td>
+      
+                          <td>{{bangDiem.HKII.diemTheDuc.diemCuoiKy}}</td>
+                          <td>{{bangDiem.HKI.diemTheDuc.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemTheDuc.diemTB}}</td>
+                          <td>{{bangDiem.HKII.diemTheDuc.TBCN}}</td>
+                      </tr>
+                        
+                      
+      
+                      <tr>
+                          <td colspan="2">Tổng hợp</td>
+                          <td colspan="2">TBCN</td>
+                          <td colspan="2">Học lực</td>
+                          <td colspan="2">Hạnh Kiểm</td>
+                          <td colspan="3">Xếp Loại</td>
+                          <td colspan="2">Xếp hạng</td>
+                          <td colspan="2">Số ngày nghỉ</td>
+                      </tr>
+                      <tr>
+                              <td colspan="2">Cả năm</td>
+                              <td colspan="2">{{bangDiem.TBMCN}}</td>
+                              <td colspan="2">{{bangDiem.xepLoai}}</td>
+                              <td colspan="2">Tốt</td>
+                              <td colspan="3">{{bangDiem.xepLoai}}</td>
+                              <td colspan="2">{{bangDiem.xepHang}}</td>
+                              <td colspan="2">3</td>
+                          </tr>
+                          <tr>
+                                  <td colspan="4" >Nhận xét GV:</td>
+                                
+                                  <td  *ngIf="show"colspan="11" >{{bangDiem.nhanXet.caNam}}</td>
+                                  <td  *ngIf="hidden"colspan="11" ><input style="width:100%" [(ngModel)]="bangDiem.nhanXet.caNam" laceholder="Nhập Nhận xét " #nhanxet></td>
+                                 
+                              </tr>
+                  </table>
+                  <button mat-raised-button type="submit" class="btn btn-azure pull-right" (click)="openModal(template)">Cập nhật</button>
+                  <button mat-raised-button type="submit" class="btn btn-warning pull-right" (click)="trangthainhanxet()">Nhận Xét</button>
+  
+  
+  
+              </div>
+            </div>
+          </div>
+        </div>
+  
+  
+  
+      </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <div class="row">
+              <div class="col-md-6">
+                <h4 class="card-title ">Lớp Chủ Nhiệm</h4>
+                <p class="card-category">Danh Sách Học Sinh Lớp Chủ Nhiệm</p>
+              </div>
+              <div class="col-md-6">
+
+                <div class="row">
+                  <div class="col-md-3" style="padding: unset">
+                    <i style="margin-top:10px; float: right;" _ngcontent-biw-c3="" class="material-icons">search</i>
+                  </div>
+                  <div class="col-md-9" style="padding-left:unset">
+                    <input class="material-icons" style="color: white" class="form-control" type="text" name="search"
+                      [(ngModel)]="searchText" autocomplete="off" placeholder=" search">
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+
+          </div>
+          <div class="card-body">
+        
+            <div class="table-responsive">
+              <table style="overflow-y: scroll" id="datatable" class="table">
+                <thead>
+                  <tr>
+
+                    <th>STT</th>
+                    <th>Họ và tên</th>
+                    <th>Lớp</th>
+                    <th>Xếp Loại</th>
+                    
+                    <!-- <th>Văn</th>
+                    <th>Toán</th>
+                    <th>Anh</th>
+                    <th>Lý</th>
+                    <th>Hóa</th>
+                    <th>Sinh</th>
+                    <th>Sử</th>
+                    <th>Địa</th>
+                    <th>GDCD</th>
+                    <th>Tin</th>
+                    <th>Mỹ Thuật</th>
+                    <th>Thể Dục</th> -->
+                    <th>Cả Năm</th>
+                
+
+                  <th></th>
+
+                    <!-- <th>Tên Học Sinh</th>
+                        <th></th> -->
+
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr *ngFor="let student of danhsachbangdiem |filter:searchText ;let i=index ">
+                    <td>{{i}}</td>
+                    <td>{{student.tenHocSinh}}</td>
+                    <td>{{student.soHieu}}</td>
+                    <td>{{student.xepLoai}}</td>
+                   
+                    <!-- <td >{{student.diemVan.HKI.diemTB}}</td>
+                    <td >{{student.diemToan.HKI.diemTB}}</td>
+                    <td >{{student.diemAnh.HKI.diemTB}}</td>
+                    <td >{{student.diemLy.HKI.diemTB}}</td>
+                    <td >{{student.diemHoa.HKI.diemTB}}</td>
+                    <td >{{student.diemSinh.HKI.diemTB}}</td>
+                    <td >{{student.diemSu.HKI.diemTB}}</td>
+                    <td >{{student.diemDia.HKI.diemTB}}</td>
+                    <td >{{student.GDCD.HKI.diemTB}}</td>
+                    <td >{{student.Tin.HKI.diemTB}}</td>
+                    <td >{{student.myThuat.HKI.diemTB}}</td>
+                    <td >{{student.theDuc.HKI.diemTB}}</td>
+                    
+                    <td >{{student.diemVan.HKII.diemTB}}</td>
+                    <td >{{student.diemToan.HKII.diemTB}}</td>
+                    <td >{{student.diemAnh.HKII.diemTB}}</td>
+                    <td >{{student.diemLy.HKII.diemTB}}</td>
+                    <td >{{student.diemHoa.HKII.diemTB}}</td>
+                    <td >{{student.diemSinh.HKII.diemTB}}</td>
+                    <td >{{student.diemSu.HKII.diemTB}}</td>
+                    <td >{{student.diemDia.HKII.diemTB}}</td>
+                    <td >{{student.GDCD.HKII.diemTB}}</td>
+                    <td >{{student.Tin.HKII.diemTB}}</td>
+                    <td >{{student.myThuat.HKII.diemTB}}</td>
+                    <td >{{student.theDuc.HKII.diemTB}}</td> -->
+                    <td >{{student.TBCN}}</td>
+
+                    <td><button (click)='getobj(student)' class="btn btn-warning"> <span
+                        class="glyphicon glyphicon-pencil"></span>&ensp; Xem</button></td>
+
+
+
+                  </tr>
+                </tbody>
+              </table>
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+   
+    
+  </div>
+</div>
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Xác thực yêu cầu</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h5>Bạn chắc chắn muốn cập nhật ?</h5>
+  </div>
+  <div style="float: right;margin-right: 20px;margin-bottom: 10px" class="row">
+    <div class="col-md-8"></div>
+    <div class="col-md-2"><button (click)="nhapnhanxet(bangDiem)"
+        style="font-size: 15px; width: 70px;height: 35px;border-radius: 10px;" class="btn btn-success">Đồng ý</button>
+    </div>
+    <div class="col-md-2" (click)="close()"><button
+        style="font-size: 15px; width: 70px;height: 35px;border-radius: 10px;" class="btn btn-warning">Trở
+        lại</button></div>
+  </div>
+</ng-template>

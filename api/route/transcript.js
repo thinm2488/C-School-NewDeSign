@@ -38,6 +38,22 @@ router.post('/transcriptbysubject', async function (req, res) {
         res.status(500).send({ errorMessage: error.message })
     }
 })
+router.put('/update', async function (req, res) {
+    try {
+        // var student = await studentController.layChiTietStudent(req.body.id);
+        
+        var transcript= await strancriptController.updatecomment(req.body)
+        res.send(
+            {
+                transcript,
+            }
+        )
+        
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({ errorMessage: error.message })
+    }
+})
 router.post('/', async function (req, res) {
     try {
         // var student = await studentController.layChiTietStudent(req.body.id);
