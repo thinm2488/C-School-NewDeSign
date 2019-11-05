@@ -28,6 +28,7 @@ export class ScheduleComponent implements OnInit {
   checkshow: boolean = false
   checksua: boolean = false
   checkdanhsach: boolean = false
+  searchText;
 
   constructor(private apiService: ApiService, private scheduleservice: ScheduleService) { }
 
