@@ -91,7 +91,7 @@ lop:string
     
       tenHocSinh: tenHocSinh,
       khoi: khoi,
-      soHieu:lop.soHieu,
+      soHieu:this.cookieService.get('GVCN'),
       gioiTinh:gioiTinh,
       ngaySinh:ngaySinh,
       diaChi:diaChi
@@ -151,7 +151,7 @@ lop:string
    
    var data={
       idTao: this.cookieService.get('id'),
-      soHieu:this.soHieu,
+      soHieu:this.cookieService.get('GVCN'),
       khoi:this.khoilop,
       liststudent:this.fileimport
    }

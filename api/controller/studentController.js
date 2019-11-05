@@ -5,6 +5,7 @@ const Android=require('./pushnotification/android')
 const Class = mongoose.model('Class');
 const Diligence = mongoose.model('Diligence');
 const Transcript = mongoose.model('Transcript');
+const Schedule = mongoose.model('Schedule');
 var moment = require('moment')
 // const nodemailer = require('nodemailer')
 var jwt = require('jsonwebtoken');
@@ -19,11 +20,21 @@ const createStudent = async function (data,teacher) {
     let year=moment( curentdate).format("YYYY")
     let classs = await Class.findOne({ soHieu: data.soHieu })
     if (!classs) {
+
         classs = new Class(data);
         
-        classs.khoi = data.khoi,
+        
+        let khoi=''
+        for(let i=0;i<=data.soHieu.length;i++){
+            khoi=data.soHieu[0];
+          break
+        }
+        classs.khoi = khoi;
         classs.soHieu = data.soHieu
         await classs.save()
+        schedule= new Schedule();
+        schedule.soHieu=data.soHieu;
+        await schedule.save();
         student = new Student(data);
         student.nienKhoa=year
         await student.save();
@@ -272,7 +283,12 @@ const importexcel = async function (data,teacher) {
     let classs = await Class.findOne({ soHieu: data.soHieu })
     if (!classs) {
         classs = new Class();
-        classs.khoi = data.khoi,
+        let khoi=''
+        for(let i=0;i<=data.soHieu.length;i++){
+            khoi=data.soHieu[0];
+          break
+        }
+        classs.khoi = khoi;
         classs.soHieu = data.soHieu
         await classs.save()
     }
@@ -282,7 +298,7 @@ const importexcel = async function (data,teacher) {
         student = new Student(data);
         student.tenHocSinh =  data.liststudent[i].tenHocSinh;
         student.soHieu =  data.liststudent[i].soHieu;
-        student.khoi =  data.liststudent[i].khoi;
+        // student.khoi =  data.liststudent[i].khoi;
         student.ngaySinh = milliseconds;
         student.gioiTinh =  data.liststudent[i].gioiTinh;
         student.diaChi =  data.liststudent[i].diaChi;

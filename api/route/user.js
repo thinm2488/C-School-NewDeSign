@@ -15,21 +15,21 @@ var mv = require('mv');
 //var authenticate = require('google-auth-library');
 var fs = require('fs');
 
-// router.get('/logout', async function (req, res) {
-//     try {
-//         req.session.destroy();
-//         res.send({
-//             status:200,
-//             mess: 'LogOut Thành công'
-//         })
+router.get('/logout', async function (req, res) {
+    try {
+        req.session.destroy();
+        res.send({
+            status:200,
+            mess: 'LogOut Thành công'
+        })
 
-//     } catch (error) {
-//         console.log(error)
-//         res.status(500).send({ errorMessage: error.message })
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({ errorMessage: error.message })
 
-//     }
+    }
 
-// })
+})
 
 
 router.get('/getall', async function (req, res) {

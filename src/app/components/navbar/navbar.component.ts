@@ -2,6 +2,10 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
+import { ApiService } from '../../service/api.service';
+import { CookieService } from 'ngx-cookie-service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -10,17 +14,28 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
     private listTitles: any[];
+    modalRef: BsModalRef;
     location: Location;
       mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
+    tenNguoiDung:String;
+    hinh:String
 
-    constructor(location: Location,  private element: ElementRef, private router: Router) {
+    constructor(private modalService: BsModalService,private cookies:CookieService,private api: ApiService,location: Location,  private element: ElementRef, private router: Router) {
       this.location = location;
           this.sidebarVisible = false;
     }
-
+    openModal(template: TemplateRef<any>) {
+        this.modalRef = this.modalService.show(template);
+      
+      }
+      close() {
+        this.modalRef.hide();
+      }
     ngOnInit(){
+        this.tenNguoiDung=this.cookies.get("tenNguoiDung");
+        this.hinh=this.cookies.get("hinh")
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
@@ -33,7 +48,14 @@ export class NavbarComponent implements OnInit {
          }
      });
     }
+logout(){
+this.api.logout();
+this.cookies.deleteAll();
 
+window.alert("Đăng Xuất Thành Công")
+this.close();
+window.location.href='/'
+}
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const body = document.getElementsByTagName('body')[0];

@@ -19,6 +19,9 @@ export class ApiService {
     return this.http.post("/api/route/user/signin", user)
 
   }
+  logout() {
+    return this.http.get("/api/route/user/logout");
+  }
   getalluser() {
     return this.http.get("/api/route/user/getall");
   }

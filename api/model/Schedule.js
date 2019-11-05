@@ -3,23 +3,33 @@ var Schema = mongoose.Schema;
 var ScheduleSchema = new Schema(
     {
        
-        listMonHoc:[
-            {
-            idMonHoc:{ type:String },
+        ngayBatDau:{ type: String, default: ""},
+        ngayKetThuc:{ type: String, default: ""},
+        soHieu:{ type: String, default: ""},
+        giaoVienCN:{ type: String, default: ""},
+       thuhai:{
+           listmonhoc:[
+              
+        ]
+          
+       },
+       thuba:{
+        listmonhoc:[]
+       
+    },  thutu:{
+        listmonhoc:[]
+       
+    },  thunam:{
+        listmonhoc:[]
+       
+    },  thusau:{
+        listmonhoc:[]
+       
+    },  thubay:{
+        listmonhoc:[]
+       
+    },
 
-            tenMonHoc:{type:String},
-
-            thoiGianBatDau:{type:String},
-
-            thoiGianKetThuc:{type:String},
-            
-            ngayHoc:{type:String}
-            }
-        ],
-        ngayBatDau:{type:String},
-        ngayKetThuc:{type:String},
-        soHieu:{type:String},
-        giaoVienCN:{type:String},
        
 
     }

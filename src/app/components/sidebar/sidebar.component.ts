@@ -16,12 +16,13 @@ export const ROUTES: RouteInfo[] = [
     { path: '/dayoff', title: 'Xét Duyệt Xin Phép',  icon:'calendar_today', class: '' },
     { path: '/transcript', title: 'Quản Lý Điểm',  icon:'assignment', class: '' },
     { path: '/transcriptdetail', title: 'Quản Lớp Chủ Nhiệm',  icon:'assignment', class: '' },
+    { path: '/schedule', title: 'Thời Khóa Biểu',  icon:'calendar_today', class: '' },
 
     // { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
     // { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
-    { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
+    // { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
     // { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
-    { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
+    // { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
     // { path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
 
    

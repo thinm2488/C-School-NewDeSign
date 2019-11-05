@@ -1,0 +1,344 @@
+<div class="main-content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4 class="card-title ">Thoi Khoa Bieu</h4>
+                                <p class="card-category">Thoi Khoa Bieu Theo Lop</p>
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="row">
+                                    <div class="col-md-3" style="padding: unset">
+                                        <i style="margin-top:10px; float: right;" _ngcontent-biw-c3=""
+                                            class="material-icons">search</i>
+                                    </div>
+                                    <div class="col-md-9" style="padding-left:unset">
+                                        <input class="material-icons" style="color: white" class="form-control"
+                                            type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+                                            placeholder=" search">
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field>
+                                    <mat-label>Chọn Khối</mat-label>
+                                    <mat-select [(ngModel)]="khoilop" (valueChange)="getlop(khoi.value)" matInput
+                                        class="example-full-width" #khoi>
+                                        <mat-option [value]="khois" *ngFor="let khois of danhsachkhoi" #khoi>{{khois}}
+                                        </mat-option>
+
+
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field>
+                                    <mat-label>Chọn Lớp</mat-label>
+                                    <mat-select [(ngModel)]="soHieu" (valueChange)="gethocsinh(lop.value)" matInput
+                                        class="example-full-width" #lop>
+                                        <mat-option [value]="item" *ngFor="let item of danhsachlop">{{item.soHieu}}
+                                        </mat-option>
+
+
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                        </div>
+                        <div *ngIf="checkshow" class="table-responsive">
+                            <table style="width: 100%" border="1">
+                                <tr>
+                                    <td style="background-color: lemonchiffon" rowspan="8"> Buổi Sáng</td>
+                                </tr>
+                                <tr style="background-color: bisque">
+                                    <th></th>
+                                    <th>Tiết 1</th>
+                                    <th>Tiết 2</th>
+                                    <th>Tiết 3</th>
+                                    <th>Tiết 4</th>
+                                    <th>Tiết 5</th>
+
+                                </tr>
+                                <!-- tiết 1 -->
+                                <tr>
+                                    <th style="background-color: bisque">Thứ Hai</th>
+                                    <td *ngFor="let TKB of Schedule.thuhai.listmonhoc">
+                                        <div>
+                                            <p>Môn: {{TKB.mon}}</p>
+                                            <p> GV: {{TKB.tenGiaoVien}}</p>
+                                            <p>Giờ Học: {{TKB.thoiGian}}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="background-color: bisque">Thứ Ba</th>
+                                    <td *ngFor="let TKB of Schedule.thuba.listmonhoc">
+                                        <div>
+                                            <p>Môn: {{TKB.mon}}</p>
+                                            <p> GV: {{TKB.tenGiaoVien}}</p>
+                                            <p>Giờ Học: {{TKB.thoiGian}}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="background-color: bisque">Thứ Tư</th>
+                                    <td *ngFor="let TKB of Schedule.thutu.listmonhoc">
+                                        <div>
+                                            <p>Môn: {{TKB.mon}}</p>
+                                            <p> GV: {{TKB.tenGiaoVien}}</p>
+                                            <p>Giờ Học: {{TKB.thoiGian}}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="background-color: bisque">Thứ Năm</th>
+                                    <td *ngFor="let TKB of Schedule.thunam.listmonhoc">
+                                        <div>
+                                            <p>Môn: {{TKB.mon}}</p>
+                                            <p> GV: {{TKB.tenGiaoVien}}</p>
+                                            <p>Giờ Học: {{TKB.thoiGian}}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="background-color: bisque">Thứ Sáu</th>
+                                    <td *ngFor="let TKB of Schedule.thusau.listmonhoc">
+                                        <div>
+                                            <p>Môn: {{TKB.mon}}</p>
+                                            <p> GV: {{TKB.tenGiaoVien}}</p>
+                                            <p>Giờ Học: {{TKB.thoiGian}}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th style="background-color: bisque">Thứ Bảy</th>
+                                    <td *ngFor="let TKB of Schedule.thubay.listmonhoc">
+                                        <div>
+                                            <p>Môn: {{TKB.mon}}</p>
+                                            <p> GV: {{TKB.tenGiaoVien}}</p>
+                                            <p>Giờ Học: {{TKB.thoiGian}}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+
+
+
+                            </table>
+
+
+                        </div>
+
+
+
+
+                     
+                        <button style="float: right" *ngIf="checkshow" (click)='getObj(Schedule)'
+                            class="btn btn-danger"> <span class="glyphicon glyphicon-pencil"></span>&ensp; Sửa</button>
+                            <button style="float: right" *ngIf="checkshow" (click)='tao()'
+                            class="btn btn-danger"> <span class="glyphicon glyphicon-pencil"></span>&ensp; Tạo bảng mẫu</button>
+                        <div *ngIf="checksua" class="table-responsive">
+
+                            <table style="width: 100%" border="1">
+                                <tr>
+                                    <td style="background-color: lemonchiffon" rowspan="8"> Buổi Sáng</td>
+                                </tr>
+                                <tr style="background-color: bisque">
+                                    <th></th>
+                                    <th>Tiết 1</th>
+                                    <th>Tiết 2</th>
+                                    <th>Tiết 3</th>
+                                    <th>Tiết 4</th>
+                                    <th>Tiết 5</th>
+
+                                </tr>
+                                <!-- tiết 1 -->
+                                <tr>
+                                    <th style="background-color: bisque">Thứ Hai</th>
+                                    <td *ngFor="let TKB of Schedule.thuhai.listmonhoc">
+                                        <div>
+                                            <p>
+                                                <mat-label>Môn</mat-label>
+                                                <mat-form-field class="example-full-width">
+                                                    <input type="text" matInput [(ngModel)]="TKB.mon">
+                                                </mat-form-field>
+
+                                            </p>
+                                            <p>
+                                                <mat-label>GV</mat-label>
+                                                <mat-form-field class="example-full-width">
+                                                    <input type="text" matInput [(ngModel)]="TKB.tenGiaoVien">
+                                                </mat-form-field>
+                                            </p>
+                                            <p>Giờ Học: {{TKB.thoiGian}}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="background-color: bisque">Thứ Ba</th>
+                                    <td *ngFor="let TKB of Schedule.thuba.listmonhoc">
+                                        <div>
+                                            <p>
+                                                <mat-label>Môn</mat-label>
+                                                <mat-form-field class="example-full-width">
+                                                    <input type="text" matInput [(ngModel)]="TKB.mon">
+                                                </mat-form-field>
+
+                                            </p>
+                                            <p>
+                                                <mat-label>GV</mat-label>
+                                                <mat-form-field class="example-full-width">
+                                                    <input type="text" matInput [(ngModel)]="TKB.tenGiaoVien">
+                                                </mat-form-field>
+                                            </p>
+                                            <p>Giờ Học: {{TKB.thoiGian}}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="background-color: bisque">Thứ Tư</th>
+                                    <td *ngFor="let TKB of Schedule.thutu.listmonhoc">
+                                        <div>
+                                            <p>
+                                                <mat-label>Môn</mat-label>
+                                                <mat-form-field class="example-full-width">
+                                                    <input type="text" matInput [(ngModel)]="TKB.mon">
+                                                </mat-form-field>
+
+                                            </p>
+                                            <p>
+                                                <mat-label>GV</mat-label>
+                                                <mat-form-field class="example-full-width">
+                                                    <input type="text" matInput [(ngModel)]="TKB.tenGiaoVien">
+                                                </mat-form-field>
+                                            </p>
+                                            <p>Giờ Học: {{TKB.thoiGian}}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="background-color: bisque">Thứ Năm</th>
+                                    <td *ngFor="let TKB of Schedule.thunam.listmonhoc">
+                                        <div>
+                                            <p>
+                                                <mat-label>Môn</mat-label>
+                                                <mat-form-field class="example-full-width">
+                                                    <input type="text" matInput [(ngModel)]="TKB.mon">
+                                                </mat-form-field>
+
+                                            </p>
+                                            <p>
+                                                <mat-label>GV</mat-label>
+                                                <mat-form-field class="example-full-width">
+                                                    <input type="text" matInput [(ngModel)]="TKB.tenGiaoVien">
+                                                </mat-form-field>
+                                            </p>
+                                            <p>Giờ Học: {{TKB.thoiGian}}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="background-color: bisque">Thứ Sáu</th>
+                                    <td *ngFor="let TKB of Schedule.thusau.listmonhoc">
+                                        <div>
+                                            <p>
+                                                <mat-label>Môn</mat-label>
+                                                <mat-form-field class="example-full-width">
+                                                    <input type="text" matInput [(ngModel)]="TKB.mon">
+                                                </mat-form-field>
+
+                                            </p>
+                                            <p>
+                                                <mat-label>GV</mat-label>
+                                                <mat-form-field class="example-full-width">
+                                                    <input type="text" matInput [(ngModel)]="TKB.tenGiaoVien">
+                                                </mat-form-field>
+                                            </p>
+                                            <p>Giờ Học: {{TKB.thoiGian}}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th style="background-color: bisque">Thứ Bảy</th>
+                                    <td *ngFor="let TKB of Schedule.thubay.listmonhoc">
+                                        <div>
+                                            <p>
+                                                <mat-label>Môn</mat-label>
+                                                <mat-form-field class="example-full-width">
+                                                    <input type="text" matInput [(ngModel)]="TKB.mon">
+                                                </mat-form-field>
+
+                                            </p>
+                                            <p>
+                                                <mat-label>GV</mat-label>
+                                                <mat-form-field class="example-full-width">
+                                                    <input type="text" matInput [(ngModel)]="TKB.tenGiaoVien">
+                                                </mat-form-field>
+                                            </p>
+                                            <p>Giờ Học: {{TKB.thoiGian}}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+
+
+
+                            </table>
+
+
+
+
+                        </div>
+                        <button style="float: right" *ngIf="checksua" (click)='update(Schedule)' class="btn btn-danger">
+                            <span class="glyphicon glyphicon-pencil"></span>&ensp; Cập nhật</button>
+                        <button style="float: right" *ngIf="checksua" (click)='back()' class="btn btn-warning"> <span
+                                class="glyphicon glyphicon-pencil"></span>&ensp; Trở lại</button>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+</div>
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Xác thực yêu cầu</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <h5>Bạn chắc chắn muốn cập nhật ?</h5>
+    </div>
+    <div style="float: right;margin-right: 20px;margin-bottom: 10px" class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-2"><button (click)="nhapnhanxet(bangDiem)"
+                style="font-size: 15px; width: 70px;height: 35px;border-radius: 10px;" class="btn btn-success">Đồng
+                ý</button>
+        </div>
+        <div class="col-md-2" (click)="close()"><button
+                style="font-size: 15px; width: 70px;height: 35px;border-radius: 10px;" class="btn btn-warning">Trở
+                lại</button></div>
+    </div>
+</ng-template>

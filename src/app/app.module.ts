@@ -43,6 +43,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { DayoffComponent } from './dayoff/dayoff.component';
 import { TranscriptComponent } from './transcript/transcript.component';
 import { FulltranscriptComponent } from './fulltranscript/fulltranscript.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -68,6 +69,7 @@ import { FulltranscriptComponent } from './fulltranscript/fulltranscript.compone
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
+    // ScheduleComponent,
     // FulltranscriptComponent,
     // TranscriptComponent,
    

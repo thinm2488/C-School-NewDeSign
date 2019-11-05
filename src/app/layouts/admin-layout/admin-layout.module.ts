@@ -15,6 +15,8 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { TeacherComponent } from '../../teacher/teacher.component';
 import { StudentComponent } from '../../student/student.component';
 import { NotificationComponent } from '../../notification/notification.component';
+import { ScheduleComponent } from '../../schedule/schedule.component';
+
 import { DayoffComponent } from '../../dayoff/dayoff.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -28,6 +30,7 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
+
 import { TranscriptComponent } from '../../transcript/transcript.component';
 
 @NgModule({
@@ -44,7 +47,8 @@ import { TranscriptComponent } from '../../transcript/transcript.component';
     MatTooltipModule,
     Ng2SearchPipeModule,
     NgbModule,
-    MatRadioModule
+    MatRadioModule,
+    
   ],
   declarations: [
     DashboardComponent,
@@ -60,7 +64,8 @@ import { TranscriptComponent } from '../../transcript/transcript.component';
     NotificationComponent,
     DayoffComponent,
     TranscriptComponent,
-    FulltranscriptComponent
+    FulltranscriptComponent,
+    ScheduleComponent
   ]
 })
 

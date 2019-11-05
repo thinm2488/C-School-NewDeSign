@@ -14,6 +14,7 @@ import { NotificationComponent } from '../../notification/notification.component
 import { DayoffComponent } from '../../dayoff/dayoff.component';
 import { TranscriptComponent } from '../../transcript/transcript.component';
 import { FulltranscriptComponent } from '../../fulltranscript/fulltranscript.component';
+import { ScheduleComponent } from '../../schedule/schedule.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -66,6 +67,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dayoff',  component: DayoffComponent },
     { path: 'transcript',  component: TranscriptComponent },
     { path: 'transcriptdetail',     component: FulltranscriptComponent },
+    { path: 'schedule',     component: ScheduleComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
