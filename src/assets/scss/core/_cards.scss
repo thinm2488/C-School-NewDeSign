@@ -530,6 +530,7 @@
 
         .ct-label{
             color: rgba($white-color, .7);
+            margin-left: 89px
         }
         .ct-grid{
             stroke: rgba(255, 255, 255, 0.2);
@@ -545,10 +546,10 @@
             fill: rgba(255,255,255,.4);
         }
         .ct-series-a .ct-bar{
-          stroke-width: 10px;
+          stroke-width: 100px;
         }
         .ct-point{
-          stroke-width: 10px;
+          stroke-width: 80px;
           stroke-linecap: round;
         }
         .ct-line{

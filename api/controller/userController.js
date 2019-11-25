@@ -37,7 +37,10 @@ const taoUser = async function (data) {
     }
 
     user = new User(data);
-    user.quanHe = data.HocSinh
+    let pass= jwt.sign({ data: '123456' }, 'secret');
+    user.quanHe = data.HocSinh;
+    user.password=pass
+
     await user.save();
     return {
         user,
@@ -128,7 +131,9 @@ const getUserByPhone = async function (soDienThoai) {
 const checkLogin = async function (data) {
     let user = await User.findOne({ soDienThoai: data.soDienThoai || data });
     if (user) {
-        if (user.password === data.password) {
+      
+        let pass= jwt.decode(user.password)
+        if (pass.data == data.password) {
             if(data.androidToken){
                 user.androidToken = data.androidToken
                 await user.save();
@@ -140,7 +145,6 @@ const checkLogin = async function (data) {
 
 
         } else {
-
             return {
                 message: 'Sai mật khẩu hoặc password',
                 status: 500
@@ -149,12 +153,19 @@ const checkLogin = async function (data) {
     } else {
         user = await Teacher.findOne({ soDienThoai: data.soDienThoai || data });
         if(user){
-            if (user.password === data.password) {
+            // let tamp= jwt.sign({ data: '456789' }, 'secret');
+            // user.password=tamp;
+            // await user.save()
+            let pass= jwt.decode(user.password)
+            if (pass.data === data.password) {
                 // user.androidToken = data.androidToken
                 // await user.save();
                 // saveAndroidToken(data)
                 //saveAndroidToken(data.androidToken);
+               
                 return user
+                
+            
     
     
             } else {
@@ -214,7 +225,7 @@ const changePass = async function (data) {
 
 
     if (user.password === data.oldpassword) {
-        user.password = data.newpassword
+        user.password == data.newpassword
     }
     else {
         throw new Error('Nhập sai mật khẩu cũ!')

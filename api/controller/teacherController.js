@@ -36,6 +36,8 @@ const taoTeacher = async function (data) {
     }
 
     teacher = new Teacher(data);
+    let pass= jwt.sign({ data: '123456' }, 'secret');
+    teacher.password=pass
     teacher.idGV = "GV" + data.soDienThoai
 
     await teacher.save();

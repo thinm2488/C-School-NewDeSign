@@ -123,14 +123,21 @@
         </div>
       <div class="row">
          
-          <div class="col-md-4">
+          <div class="col-md-12">
               <div class="card card-chart">
                   <div class="card-header card-header-warning">
                       <div class="ct-chart" id="websiteViewsChart"></div>
                   </div>
                   <div class="card-body">
-                      <h4 class="card-title">Email Subscriptions</h4>
-                      <p class="card-category">Last Campaign Performance</p>
+                      <h4 class="card-title">Thống kê học loại học sinh</h4>
+                      <mat-form-field>
+                        <mat-label>Chọn Khối</mat-label>
+                        <mat-select  [(ngModel)]="khoilop" (valueChange)="layketqua(khoi.value)" matInput class="example-full-width" #khoi>
+                          <mat-option [value]="khois" *ngFor="let khois of danhsachkhoi" #khoi>{{khois}}</mat-option>
+                         
+    
+                        </mat-select>
+                      </mat-form-field>
                   </div>
                   <div class="card-footer">
                       <div class="stats">

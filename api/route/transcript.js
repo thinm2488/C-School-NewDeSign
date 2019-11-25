@@ -22,6 +22,22 @@ router.get('/:id', async function (req, res) {
         res.status(500).send({ errorMessage: error.message })
     }
 })
+router.post('/getall', async function (req, res) {
+    try {
+        // var student = await studentController.layChiTietStudent(req.body.id);
+        
+        var transcript= await strancriptController.getall(req.body.khoi)
+        res.send(
+            {
+                transcript,
+            }
+        )
+        
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({ errorMessage: error.message })
+    }
+})
 router.post('/transcriptbysubject', async function (req, res) {
     try {
         // var student = await studentController.layChiTietStudent(req.body.id);

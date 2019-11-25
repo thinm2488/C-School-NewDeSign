@@ -48,6 +48,7 @@ export class ApiService {
   getstudent(id){
     return this.http.get("/api/route/student/"+id);
   }
+ 
   getlistclass(data){
     return this.http.post("/api/route/student/class",data);
   }

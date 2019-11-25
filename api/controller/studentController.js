@@ -40,6 +40,7 @@ const createStudent = async function (data,teacher) {
         await student.save();
         let transcript=new Transcript();
         transcript.GVCN=data.idTao,
+        transcript.khoi=khoi
         transcript.idHocSinh=year+student._id,
         transcript.tenHocSinh=student.tenHocSinh,
         transcript.tenGV=teacher.user.tenNguoiDung,
@@ -62,6 +63,7 @@ const createStudent = async function (data,teacher) {
         await student.save();
         let transcript=new Transcript();
         transcript.GVCN=data.idTao,
+        transcript.khoi=khoi
         transcript.idHocSinh=year+student._id,
         transcript.tenHocSinh=student.tenHocSinh,
         transcript.tenGV=teacher.user.tenNguoiDung,
@@ -306,6 +308,7 @@ const importexcel = async function (data,teacher) {
         if(student){
             let transcript=new Transcript();
             transcript.GVCN=data.idTao,
+            transcript.khoi=khoi
             transcript.idHocSinh=student._id,
             transcript.tenHocSinh=student.tenHocSinh,
             transcript.tenGV=teacher.user.tenNguoiDung,

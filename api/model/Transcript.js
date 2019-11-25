@@ -5,6 +5,7 @@ var TranscriptSchema = new Schema(
 
         nienKhoa: { type: String },
         GVCN: { type: String },
+        khoi:{type:String},
         tenGV: { type: String },
         soHieu: { type: String },
         idHocSinh: { type: String },

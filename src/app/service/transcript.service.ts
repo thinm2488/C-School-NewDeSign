@@ -28,4 +28,7 @@ export class TranscriptService {
   update(data){
     return this.http.put('/api/route/transcript/update',data)
   }
+  getstatistic(data){
+    return this.http.post("/api/route/transcript/getall",data);
+  }
 }

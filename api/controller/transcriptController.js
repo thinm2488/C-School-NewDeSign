@@ -26,6 +26,17 @@ const getalltranscript = async function (sohieu) {
 
 
 }
+const getall= async function (khoi) {
+
+    let transcript = await Transcript.find({ khoi:khoi });
+    return {
+        transcript,
+        status: 200
+    }
+
+
+
+}
 const getalltranscriptbysub = async function (data) {
     let transcript = [
 
@@ -1511,6 +1522,7 @@ module.exports = {
     gettranscriptsub: gettranscriptsub,
     inserttranscript: inserttranscript,
     importexcel: importexcel,
-    updatecomment:updatecomment
+    updatecomment:updatecomment,
+    getall:getall
 
 }
