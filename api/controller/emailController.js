@@ -11,11 +11,11 @@ const sendMail = async function (data) {
         }
       });
       if(data.ngayBatDau==data.ngayKetThuc){
-        var dateTime = data.ngayBatDau+1000;
+        var dateTime = data.ngayBatDau+86400000;
         var ngayNghi =moment( dateTime).format("DD/MM/YY");
       }else{
-        var ngayBatDau = data.ngayBatDau+1000;
-        var ngayKetThuc = data.ngayKetThuc+1000;
+        var ngayBatDau = data.ngayBatDau+86400000;
+        var ngayKetThuc = data.ngayKetThuc+ 86400000;
         var ngayNghi =(moment( ngayBatDau).format("DD/MM/YY"))+" - "+(moment( ngayKetThuc).format("DD/MM/YY"));
       }
        
