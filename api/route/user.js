@@ -240,13 +240,9 @@ router.post('/change-avatar', multipartMiddleware, async function (req, res) {
             var newPath = url
             var users =await userController.editProfile(req.body);
             var user=users.user;
-            file.mv(url2 + req.files.hinh.name)
+     
             fs.readFile(oldPath, async function (err, data) {
-                fs.writeFile(newPath+"/"+req.files.hinh.name, data,async function (err) {
-                    fs.unlink(oldPath,async function () {
-                        if (err) throw err;
-
-                    });
+                fs.writeFile(url2+"/"+req.files.hinh.name, data,async function (err) {
                 });
                 
             });
