@@ -6,7 +6,7 @@ const sendMail = async function (data) {
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'project.school.education@gmail.com',
+          user: 'cschool.education@gmail.com',
           pass: 'huynhnhu'
         }
       });
@@ -21,7 +21,7 @@ const sendMail = async function (data) {
        
 
       var mailOptions = {
-        from: 'project.school.education@gmail.com',
+        from: 'cschool.education@gmail.com',
         to: ''+data.emailGiaoVien+'',
         subject: 'Xin Phép Nghỉ Học',
         text: '',
@@ -30,6 +30,7 @@ const sendMail = async function (data) {
       };
       
       transporter.sendMail(mailOptions, function(error, info){
+        console.log(mailOptions)
         if (error) {
           console.log(error);
         } else {
