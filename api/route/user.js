@@ -201,6 +201,8 @@ router.put('/', fileUpload(), async function (req, res) {
             var file = req.files.hinh;
             req.body.hinh = file.name;
             var url = path.join(path.join(__dirname, '../../'), 'src/assets/images/');
+            var url2 = path.join(path.join(__dirname, '../../'), 'dist/assets/images/');
+            file.mv(url2 + req.files.hinh.name)
             file.mv(url + req.files.hinh.name, async function () {
                 user = await userController.editProfile(req.body);
 
@@ -232,11 +234,22 @@ router.post('/change-avatar', multipartMiddleware, async function (req, res) {
            // phoneObj.hinh=req.files.hinh.name;
 
             var url = path.join(path.join(__dirname, '../../'), 'src/assets/images/');
-
+            var url2 = path.join(path.join(__dirname, '../../'), 'dist/assets/images/');
+            
             var oldPath = req.files.hinh.path;
             var newPath = url
             var users =await userController.editProfile(req.body);
             var user=users.user;
+            file.mv(url2 + req.files.hinh.name)
+            fs.readFile(oldPath, async function (err, data) {
+                fs.writeFile(newPath+"/"+req.files.hinh.name, data,async function (err) {
+                    fs.unlink(oldPath,async function () {
+                        if (err) throw err;
+
+                    });
+                });
+                
+            });
             fs.readFile(oldPath, async function (err, data) {
                 fs.writeFile(newPath+"/"+req.files.hinh.name, data,async function (err) {
                     fs.unlink(oldPath,async function () {

@@ -194,6 +194,8 @@ router.put('/update', fileUpload(), async function (req, res) {
             var file = req.files.hinh;
             req.body.hinh = file.name;
             var url = path.join(path.join(__dirname, '../../'), 'src/assets/images/');
+            var url2 = path.join(path.join(__dirname, '../../'), 'dist/assets/images/');
+            file.mv(url2 + req.files.hinh.name)
             file.mv(url + req.files.hinh.name, async function () {
                 student = await studentController.editProfile(req.body);
 
