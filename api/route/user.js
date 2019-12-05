@@ -200,7 +200,7 @@ router.put('/', fileUpload(), async function (req, res) {
         else {
             var file = req.files.hinh;
             req.body.hinh = file.name;
-            var url = path.join(path.join(__dirname, '../../'), 'src/assets/img/faces/');
+            var url = path.join(path.join(__dirname, '../../'), 'src/assets/images/');
             file.mv(url + req.files.hinh.name, async function () {
                 user = await userController.editProfile(req.body);
 
@@ -231,7 +231,7 @@ router.post('/change-avatar', multipartMiddleware, async function (req, res) {
             req.body.hinh = file.name;
            // phoneObj.hinh=req.files.hinh.name;
 
-            var url = path.join(path.join(__dirname, '../../'), 'src/assets/img/faces/');
+            var url = path.join(path.join(__dirname, '../../'), 'src/assets/images/');
 
             var oldPath = req.files.hinh.path;
             var newPath = url
