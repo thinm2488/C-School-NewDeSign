@@ -15,7 +15,7 @@ export class FulltranscriptComponent implements OnInit {
   soHieu: any;
   show: boolean = true;
   hidden: boolean = false;
-
+  thang:string;
   danhsachbangdiem: any
   constructor(private modalService: BsModalService,private as: ApiService, private cookieService: CookieService, private ts: TranscriptService) { }
   bangDiem: FullTranscript
@@ -23,6 +23,7 @@ export class FulltranscriptComponent implements OnInit {
   checktao: boolean = true
   modalRef: BsModalRef;
   searchText
+  listmonth=['1','2','3','4','5','6','7','8','9','10','11','12','Cả năm']
   ngOnInit() {
     this.getstudent()
   }
@@ -79,6 +80,19 @@ export class FulltranscriptComponent implements OnInit {
     this.ts.update(data).subscribe(data=>{
       let res=Object.assign(data)
       this.bangDiem = res.transcript.transcript
+    })
+  }
+  nhapnhanxetthang(nhanxet,thang){
+    let data = {
+      idHocSinh: this.bangDiem.idHocSinh,
+      nhanxet: nhanxet,
+      thang:thang
+    }
+    this.ts.update(data).subscribe(data=>{
+      let res=Object.assign(data)
+      this.bangDiem = res.transcript.transcript
+      window.alert("Cập nhật thành công!")
+      this.close()
     })
   }
 }

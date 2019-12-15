@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
       }
 
       else {
-        if (role == "gv" || role == "ht") {
+        if (role == "gv" || role == "bgh") {
           var chuyenmon = this.user.user.mon
 
           this.cookieService.set('tenNguoiDung', tenNguoiDung.toString());

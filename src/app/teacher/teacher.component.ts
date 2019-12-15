@@ -35,6 +35,7 @@ export class TeacherComponent implements OnInit {
      
    }
    searchText;
+   searchTK;
    checksuatk:boolean=false
    checktaotk:boolean=true
   constructor( private modalService: BsModalService,private as:ApiService, private cookies:CookieService, private fb:FormBuilder) {
@@ -42,8 +43,16 @@ export class TeacherComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.getallteacher();
-    this.getalluser()
+    if(this.cookies.get("role")=="bgh"){
+      this.getallteacher();
+      this.getalluser()
+    }else{
+      window.location.href="/dashboard"
+      window.alert("Bạn không có quyền truy cập chức năng này")
+      
+    }
+    
+   
   }
   getallteacher(){
     this.as.getaccount().subscribe(data=>{

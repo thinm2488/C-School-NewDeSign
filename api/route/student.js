@@ -259,15 +259,29 @@ router.put('/dayoff', async function (req, res) {
     let token = req.session.token;
     var phoneObj = jwt.decode(token);
     let giaoVien= await TeacherController.getTeacherByPhone(phoneObj.data)
-    var dayoff= await studentController.alloweddayoff(req.body) ;
-    let user= await UserController.layChiTietUser(dayoff.dayoff.idPhuHuynh)
-    await FirebaseController.insertnoti(dayoff,giaoVien)
-    Android.sendnotidayoff(dayoff,user);
-    res.send({
-        status:200,
-      dayoff
-       
-        
-    })
+    if(!req.body.lydo){
+        let dayoff= await studentController.alloweddayoff(req.body) ;
+        let user= await UserController.layChiTietUser(dayoff.dayoff.idPhuHuynh)
+        await FirebaseController.insertnoti(dayoff,giaoVien)
+        Android.sendnotidayoff(dayoff,user);
+        res.send({
+            status:200,
+          dayoff
+           
+            
+        })
+    }else{
+        let dayoff= await studentController.denydayoff(req.body) ;
+        let user= await UserController.layChiTietUser(dayoff.dayoff.idPhuHuynh)
+        await FirebaseController.insertnoti(dayoff,giaoVien)
+        Android.sendnotideny(dayoff,user);
+        res.send({
+            status:200,
+          dayoff
+           
+            
+        })
+    }
+   
 });
 module.exports = router;

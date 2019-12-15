@@ -62,7 +62,7 @@ lop:string
     let data = {
       khoi: khoi
     }
-    window.alert()
+   
   
     this.apiService.getlistclass(data).subscribe(res => {
       let danhsachlop = Object.assign(res)

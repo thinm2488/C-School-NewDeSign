@@ -1,25 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import Student from '../model/Student'
 import { ApiService } from '../service/api.service';
+import { TemplateRef } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 @Component({
   selector: 'app-dayoff',
   templateUrl: './dayoff.component.html',
   styleUrls: ['./dayoff.component.scss']
 })
 export class DayoffComponent implements OnInit {
-
+  modalRef: BsModalRef;
   dayoff:any;
   student:Student
   Dayoff:any
   checksua: boolean = false
   checktao: boolean = true
   trangthai:string
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService,private modalService: BsModalService) { }
 
   ngOnInit() {
    this.getdayoff()
    
      
+  }
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+  close() {
+    this.modalRef.hide();
   }
   getdayoff(){
     this.apiService.getalldayoff()
@@ -63,5 +71,19 @@ export class DayoffComponent implements OnInit {
     
     })
 
+  }
+  tuchoi(lydo){
+    let data={
+      id:this.Dayoff._id,
+      lydo:lydo
+    }
+    this.apiService.alloweddayoff(data).subscribe(data=>{
+      
+      window.alert("Đã gửi")
+      this.close()
+
+      this.getdayoff()
+    
+    })
   }
 }

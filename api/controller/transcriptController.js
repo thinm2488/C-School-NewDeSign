@@ -1469,8 +1469,7 @@ const updatecomment = async function (data) {
     let transcript = await Transcript.findOne({ idHocSinh: data.idHocSinh });
 
     if(transcript){
-        let curentdate=new Date()
-        let mounth=moment( curentdate).format("MM")
+        let mounth=data.thang
         if(mounth==01){
             transcript.nhanXet.thang1=data.nhanxet
         }

@@ -98,10 +98,10 @@
                         <tr>
       
                           <th>Ngày</th>
-                          <th>Tên Phụ Huynh</th>
-                          <th>Tên Học Sinh</th>
+                          <th> Phụ Huynh</th>
+                          <th> Học Sinh</th>
                           <th>Lớp</th>
-                          <th>Số Lượng Ngày Nghỉ</th>
+                          <th>Số Lượng </th>
                           <th>Trạng thái</th>
                           <th></th>
                           <!-- <th>Tên Học Sinh</th>
@@ -188,7 +188,7 @@
   
                 </div>
   
-            
+                <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="openModal(template)">Từ chối</button>
                 <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="duyet()">Duyệt</button>
           
                
@@ -210,11 +210,12 @@
         </button>
       </div>
       <div class="modal-body">
-        <h5>Bạn chắc chắn muốn xóa thông báo này??</h5>
+     <h5>Mời nhập lý do từ chối: </h5>
+        <textarea #lydo style="width:100%" rows="10" placeholder="Nhập lý do từ chối"> </textarea>
       </div>
       <div style="float: right;margin-right: 20px;margin-bottom: 10px" class="row">
-          <div class="col-md-8"></div>
-          <div  class="col-md-2"><button (click)="Xoa()"style="font-size: 15px; width: 70px;height: 35px;border-radius: 10px;" class="btn btn-danger">Xóa</button></div>
-          <div  class="col-md-2" (click)="close()"><button style="font-size: 15px; width: 70px;height: 35px;border-radius: 10px;" class="btn btn-warning">Trở lại</button></div>
+          <div class="col-md-6"></div>
+          <div  class="col-md-3"><button (click)="tuchoi(lydo.value)"style="font-size: 12px; width:108px;height: 40px;border-radius: 10px;" class="btn btn-info">Gửi</button></div>
+          <div  class="col-md-3" (click)="close()"><button style="font-size: 12px; width: 108px;height: 40px;border-radius: 10px;" class="btn btn-warning">Trở lại</button></div>
       </div>
     </ng-template>

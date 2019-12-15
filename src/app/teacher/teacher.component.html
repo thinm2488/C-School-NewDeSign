@@ -17,7 +17,7 @@
                             <i style="margin-top:10px; float: right;" _ngcontent-biw-c3="" class="material-icons">search</i>
                          </div>
                          <div class="col-md-9" style="padding-left:unset">
-                            <input  class="material-icons" style="color: white"class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder=" search">
+                            <input  class="material-icons" style="color: white"class="form-control" type="text" name="search" [(ngModel)]="searchTK" autocomplete="off" placeholder=" search">
                          </div>
                        </div>
                      
@@ -31,7 +31,7 @@
                 <thead>
                   <tr>
 
-                    <th>Tên Phụ Huynh</th>
+                    <th>Tên Giáo viên</th>
                     <th>Số Điện Thoại</th>
                     <th>Email</th>
                     <th></th>
@@ -42,7 +42,7 @@
                 </thead>
                 <tbody>
 
-                  <tr *ngFor="let user of teacherList|filter:searchText">
+                  <tr *ngFor="let user of teacherList|filter:searchTK">
                     <td>{{user.tenNguoiDung}}</td>
                     <td>{{user.soDienThoai}}</td>
                     <td>{{user.email}}</td>
@@ -550,11 +550,11 @@
     <h5>Bạn chắc chắn muốn xóa tài khoản này??</h5>
   </div>
   <div style="float: right;margin-right: 20px;margin-bottom: 10px" class="row">
-    <div class="col-md-8"></div>
-    <div class="col-md-2"><button (click)="Xoa()" style="font-size: 15px; width: 70px;height: 35px;border-radius: 10px;"
+    <div class="col-md-6"></div>
+    <div class="col-md-3"><button (click)="Xoa()" style="font-size: 12px; width:108px;height: 40px;border-radius: 10px"
         class="btn btn-danger">Xóa</button></div>
-    <div class="col-md-2" (click)="close()"><button
-        style="font-size: 15px; width: 70px;height: 35px;border-radius: 10px;" class="btn btn-warning">Trở
+    <div class="col-md-3" (click)="close()"><button
+        style="font-size: 12px; width:108px;height: 40px;border-radius: 10px" class="btn btn-warning">Trở
         lại</button></div>
   </div>
 </ng-template>

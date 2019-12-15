@@ -9,7 +9,7 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-    { path: '/teacher', title: 'Bảng Phân Công',  icon:'content_paste', class: '' },
+    { path: '/teacher', title: 'Quản lý tài khoản GV',  icon:'content_paste', class: '' },
     { path: '/user', title: 'Quản Lý Tài Khoản',  icon:'person', class: '' },
     { path: '/student', title: 'Quản Lý Học Sinh',  icon:'people', class: '' },
     { path: '/notification', title: 'Quản Lý Thông Báo',  icon:'notifications', class: '' },
@@ -18,19 +18,13 @@ export const ROUTES: RouteInfo[] = [
     { path: '/transcriptdetail', title: 'Quản Lớp Chủ Nhiệm',  icon:'assignment', class: '' },
     { path: '/schedule', title: 'Thời Khóa Biểu',  icon:'calendar_today', class: '' },
 
-    // { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
-    // { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
-    // { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
-    // { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
-    // { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
-    // { path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
 
    
     
   
    
    
-    { path: '/upgrade', title: 'Quản Lý Chuyên Cần',  icon:'assignment_turned_in', class: '' },
+
 
 ];
 

@@ -268,6 +268,19 @@ const alloweddayoff = async function (data) {
     }
 
 }
+const denydayoff = async function (data) {
+    //let student= await Student.findOne({_id:data.idHocSinh});
+    let dayoff = await Applicationform.findOne({_id:data.id})
+   
+    if (dayoff) {
+      
+           return {dayoff:dayoff};
+     
+    } else {
+        throw new Error("Không có dữ liệu")
+    }
+
+}
 const getdayoffbyid = async function (id) {
     //let student= await Student.findOne({_id:data.idHocSinh});
     let dayoff = await Applicationform.findOne({_id:id})
@@ -358,5 +371,6 @@ module.exports = {
     getalldayoff:getalldayoff,
     importexcel: importexcel,
     getclass:getclass,
-    getdayoffbyid:getdayoffbyid
+    getdayoffbyid:getdayoffbyid,
+    denydayoff:denydayoff
 }

@@ -62,6 +62,7 @@ this.nt.taonoti(data).subscribe(data=>{
   if(this.res.status==200){
     window.alert("Tạo thông báo thành công!")
    this.getnoti()
+   
   }
 })
 }

@@ -101,9 +101,43 @@ function sendnotidayoff( str,data){
   
   
 }
+function sendnotideny( str,data){
+  let ngaynghi
+    if(str.dayoff.ngayBatDau==str.dayoff.ngayKetThuc){
+     ngaynghi=moment( str.dayoff.ngayBatDau).format("DD/MM/YY")
+    }
+    else{
+     ngaynghi=moment( str.dayoff.ngayBatDau).format("DD/MM/YY")+" đến "+moment(str.dayoff.ngayKetThuc).format("DD/MM/YY");
+ 
+    }
+     var message = { //this may vary according to the message type (single recipient, multicast, topic, et cetera)
+       //to: token, //single device
+       //collapse_key: 'your_collapse_key',
+       to: data.user.androidToken, //single device
+       notification: {
+           title: "Từ chối yêu cầu nghỉ Phép", 
+           body: "Yêu cầu xin nghỉ phép ngày "+ngaynghi+" không được duyệt. Vì lý do:"+str.lydo+" " ,
+           tag: str.dayoff.id,
+ 
+       },
+       
+       
+      
+   };
+   
+   fcm.send(message, function(err, response){
+       if (err) {
+           console.log("Something has gone wrong!");
+       } else {
+           console.log("Successfully sent with response: ", response);
+       }
+   });
+   
+   
+ }
 module.exports = {
   //sendNotification: sendNotification,
   sendnoti:sendnoti,
-  sendnotidayoff:sendnotidayoff
-
+  sendnotidayoff:sendnotidayoff,
+  sendnotideny:sendnotideny
 }
