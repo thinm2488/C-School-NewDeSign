@@ -306,6 +306,9 @@ const importexcel = async function (data,teacher) {
         classs.khoi = khoi;
         classs.soHieu = data.soHieu
         await classs.save()
+        schedule= new Schedule();
+        schedule.soHieu=data.soHieu;
+        await schedule.save();
     }
     for(let i=0;i< data.liststudent.length;i++){
         let date = new Date( data.liststudent[i].ngaySinh); // some mock date

@@ -118,6 +118,8 @@ update(schedule) {
   console.log(data)
   this.scheduleservice.updateschedule(data).subscribe(data => {
     let res = Object.assign(data)
+    this.checksua = false
+    this.checkshow = true
     this.Schedule = res.schedule
 
   })
