@@ -36,8 +36,8 @@ const taoTeacher = async function (data) {
     }
 
     teacher = new Teacher(data);
-    let pass= jwt.sign({ data: '123456' }, 'secret');
-    teacher.password=pass
+    let pass = jwt.sign({ data: '123456' }, 'secret');
+    teacher.password = pass
     teacher.idGV = "GV" + data.soDienThoai
 
     await teacher.save();
@@ -93,7 +93,9 @@ const importexcel = async function (data, nguoiTao) {
             teacher.GVCN = element.GVCN;
             teacher.idGV = "GV0" + element.SoDienThoai;
             teacher.mon = element.BoMon
-            await teacher.save();
+            let pass = jwt.sign({ data: '123456' }, 'secret');
+            teacher.password = pass
+                await teacher.save();
             return {
 
                 message: "Thêm tài khoản thành công",
@@ -108,7 +110,7 @@ const importexcel = async function (data, nguoiTao) {
 }
 const importexcelphancong = async function (data) {
 
-    for (let a = 0; a <= data.length; a++) {
+    for (let a = 0; a < data.length; a++) {
         let teacher = await Teacher.findOne({ idGV: data[a].idGV });
         if (teacher) {
             var list = [];
@@ -190,7 +192,7 @@ const editProfile = async function (data) {
     if (data.GVCN) {
         teacher.GVCN = data.GVCN;
     }
-   
+
     if (data.lopDay) {
         let list = [];
         let str = data.lopDay + ","
@@ -202,17 +204,18 @@ const editProfile = async function (data) {
             }
             if (str[i] == ",") {
                 list.push(tam)
-                tam=''
+                tam = ''
             }
 
         }
         teacher.lopDay = list;
     }
-  
+
     await teacher.save();
-    return { 
-        status:200,
-        teacher }
+    return {
+        status: 200,
+        teacher
+    }
 
 }
 const changePass = async function (data) {
