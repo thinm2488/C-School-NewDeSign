@@ -47,7 +47,7 @@ router.get('/getall', async function (req, res) {
 router.get('/profile', async function (req, res) {
     try {
         const token = req.headers['x-access-token'] || req.session.token
-        var phoneObj = jwt.decode(token);xi
+        var phoneObj = jwt.decode(token);
         var user = await userController.getUserByPhone(phoneObj.data)
         res.send({
             status: 200,

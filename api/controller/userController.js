@@ -37,9 +37,9 @@ const taoUser = async function (data) {
     }
 
     user = new User(data);
-    let pass= jwt.sign({ data: '123456' }, 'secret');
+    let pass = jwt.sign({ data: '123456' }, 'secret');
     user.quanHe = data.HocSinh;
-    user.password=pass
+    user.password = pass
 
     await user.save();
     return {
@@ -131,14 +131,14 @@ const getUserByPhone = async function (soDienThoai) {
 const checkLogin = async function (data) {
     let user = await User.findOne({ soDienThoai: data.soDienThoai || data });
     if (user) {
-      
-        let pass= jwt.decode(user.password)
+
+        let pass = jwt.decode(user.password)
         if (pass.data == data.password) {
-            if(data.androidToken){
+            if (data.androidToken) {
                 user.androidToken = data.androidToken
                 await user.save();
             }
-           
+
             // saveAndroidToken(data)
             //saveAndroidToken(data.androidToken);
             return user
@@ -152,37 +152,37 @@ const checkLogin = async function (data) {
         }
     } else {
         user = await Teacher.findOne({ soDienThoai: data.soDienThoai || data });
-        if(user){
+        if (user) {
             // let tamp= jwt.sign({ data: '456789' }, 'secret');
             // user.password=tamp;
             // await user.save()
-            let pass= jwt.decode(user.password)
+            let pass = jwt.decode(user.password)
             if (pass.data === data.password) {
                 // user.androidToken = data.androidToken
                 // await user.save();
                 // saveAndroidToken(data)
                 //saveAndroidToken(data.androidToken);
-               
+
                 return user
-                
-            
-    
-    
+
+
+
+
             } else {
-    
+
                 return {
                     message: 'Sai mật khẩu hoặc password',
                     status: 500
                 }
             }
         }
-        else{
-            return{
+        else {
+            return {
                 message: 'Số điện thoại không tồn tại',
                 status: 500
             }
         }
-       
+
     }
 
 }
@@ -222,10 +222,11 @@ const editProfile = async function (data) {
 const changePass = async function (data) {
     let user = await User.findOne({ soDienThoai: data.soDienThoai });
 
-
-
-    if (user.password === data.oldpassword) {
-        user.password == data.newpassword
+// giải mã password
+    let pass = jwt.decode(user.password)
+    if (data.oldpassword === pass) {
+        let newpassword=jwt.sign({ data: data.newpassword }, 'secret');
+        user.password == newpassword
     }
     else {
         throw new Error('Nhập sai mật khẩu cũ!')
