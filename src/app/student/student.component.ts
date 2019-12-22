@@ -125,6 +125,10 @@ lop:string
   fileUploaded: File;  
   worksheet: any; 
   storeData: any;
+  uploadedFile(event) {  
+    this.fileUploaded = event.target.files[0];  
+    this.readExcel();  
+  }  
   readExcel() {  
     let readFile = new FileReader();  
     readFile.onload = (e) => {  
@@ -159,7 +163,7 @@ lop:string
       let res=Object.assign(data)
       if(res.student.status==200){
         window.alert("Import file thành công!");
-        window.location.href="/home/hocsinh/danhsach"
+        window.location.href="/student"
       }
     })
 

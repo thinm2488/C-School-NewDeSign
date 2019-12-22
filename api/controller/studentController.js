@@ -301,7 +301,7 @@ const importexcel = async function (data,teacher) {
         let khoi=''
         for(let i=0;i<=data.soHieu.length;i++){
             khoi=data.soHieu[0];
-          break
+            
         }
         classs.khoi = khoi;
         classs.soHieu = data.soHieu
@@ -321,7 +321,7 @@ const importexcel = async function (data,teacher) {
         if(student){
             let transcript=new Transcript();
             transcript.GVCN=data.idTao,
-            transcript.khoi=khoi
+            transcript.khoi=data.khoi
             transcript.idHocSinh=student._id,
             transcript.tenHocSinh=student.tenHocSinh,
             transcript.tenGV=teacher.user.tenNguoiDung,
