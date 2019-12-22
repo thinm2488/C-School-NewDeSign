@@ -49,7 +49,7 @@ const updateSchedule = async function (data) {
     let thunam=[];
     let thusau=[];
     let thubay=[]
-    for(let i=0;i<=6;i++){
+    for(let i=0;i<=4;i++){
         if(data.thuhai.listmonhoc[i].mon && data.thuhai.listmonhoc[i].mon!='' ){
             thuhai.push(data.thuhai.listmonhoc[i])
         }
@@ -71,7 +71,7 @@ const updateSchedule = async function (data) {
     }
     schedule.thuhai.listmonhoc=thuhai
     schedule.thuba.listmonhoc=thuba
-    schedule.thutu.listmonhoc=thuthu
+    schedule.thutu.listmonhoc=thutu
     schedule.thunam.listmonhoc=thunam
     schedule.thusau.listmonhoc=thusau
     schedule.thubay.listmonhoc=thubay
