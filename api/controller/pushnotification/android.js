@@ -70,10 +70,10 @@ var moment = require('moment')
 function sendnotidayoff( str,data){
  let ngaynghi
    if(str.dayoff.ngayBatDau==str.dayoff.ngayKetThuc){
-    ngaynghi=moment( str.dayoff.ngayBatDau).format("DD/MM/YY")
+    ngaynghi=moment( str.dayoff.ngayBatDau-86400000).format("DD/MM/YY")
    }
    else{
-    ngaynghi=moment( str.dayoff.ngayBatDau).format("DD/MM/YY")+" đến "+moment(str.dayoff.ngayKetThuc).format("DD/MM/YY");
+    ngaynghi=moment( str.dayoff.ngayBatDau-86400000).format("DD/MM/YY")+" đến "+moment(str.dayoff.ngayKetThuc-86400000).format("DD/MM/YY");
 
    }
     var message = { //this may vary according to the message type (single recipient, multicast, topic, et cetera)
@@ -135,6 +135,7 @@ function sendnotideny( str,data){
    
    
  }
+ 
 module.exports = {
   //sendNotification: sendNotification,
   sendnoti:sendnoti,

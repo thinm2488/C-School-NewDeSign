@@ -14,7 +14,8 @@ var ApplicationFormSchema = new Schema(
         trangThai:{type:Boolean, default:false},
         ngayGui:{type:Number},
         emailGiaoVien:{type:String},
-        soNgayNghi:{type:String}
+        soNgayNghi:{type:String},
+        lyDoTuChoi:{type:String}
     }
 );
 module.exports = mongoose.model('ApplicationForm',ApplicationFormSchema)

@@ -224,9 +224,9 @@ const changePass = async function (data) {
 
 // giải mã password
     let pass = jwt.decode(user.password)
-    if (data.oldpassword === pass) {
+    if (data.oldpassword === pass.data) {
         let newpassword=jwt.sign({ data: data.newpassword }, 'secret');
-        user.password == newpassword
+        user.password = newpassword
     }
     else {
         throw new Error('Nhập sai mật khẩu cũ!')

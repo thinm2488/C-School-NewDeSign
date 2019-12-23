@@ -49,7 +49,21 @@ const insertnoti = async function (data,giaoVien) {
    ngaynghi=moment( data.dayoff.ngayBatDau).format("DD/MM/YY")+" đến "+moment(data.dayoff.ngayKetThuc).format("DD/MM/YY");
 
   }
-
+if(data.dayoff.lyDoTuChoi){
+  var dbRef = firebase.database().ref();
+  var dbNoti = dbRef
+  
+      .child("notifications/" + giaoVien.id + "/" + data.dayoff.id);
+  dbNoti.set({
+      _id: data.dayoff.id,
+      chuDe:"Yêu Cầu xin phép",
+      noiDung:"Yêu cầu xin nghỉ phép ngày "+ngaynghi+" đã bị từ chối với lý do "+data.dayoff.lyDoTuChoi+"",
+      ngaytao: data.dayoff.ngayGui,
+      nguoiTao:giaoVien.tenNguoiDung,
+      hinh: giaoVien.hinh,
+      IsBadge: false,
+  });
+}else{
   var dbRef = firebase.database().ref();
   var dbNoti = dbRef
   
@@ -63,6 +77,8 @@ const insertnoti = async function (data,giaoVien) {
       hinh: giaoVien.hinh,
       IsBadge: false,
   });
+}
+
   
 }
 const updatefirebase = async function (data,nguoiTao) {

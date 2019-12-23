@@ -273,6 +273,8 @@ const denydayoff = async function (data) {
     let dayoff = await Applicationform.findOne({_id:data.id})
    
     if (dayoff) {
+        dayoff.lyDoTuChoi=data.lydo
+        dayoff.save()
       
            return {dayoff:dayoff};
      
