@@ -162,6 +162,8 @@ router.post('/signin', async function (req, res) {
 
 router.post('/xamarin/signin', async function (req, res) {
     try {
+        console.log(req.body.user);
+        console.log(req.body);
         //firebasetoken=passport.createPassportConfig(req.body,req.body.soDienThoai,req.body.password,done=true);
         var token = jwt.sign({ data: req.body.user.soDienThoai }, 'secret', { expiresIn: '1y' });
         req.session.token = token;
