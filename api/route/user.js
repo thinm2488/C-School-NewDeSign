@@ -179,6 +179,7 @@ router.post('/xamarin/signin', async function (req, res) {
     }
 
 });
+
 // router.post('/profile', async function (req, res) {
 //     try {
 //         const token = req.headers['x-access-token'] || req.session.token
