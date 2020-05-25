@@ -118,6 +118,31 @@ router.post('/signup', async function (req, res) {
 
 
 });
+
+router.post('/xamarin/signup', async function (req, res) {
+    try {
+        //? lai con de x-acess-token vao khong
+
+        var token = jwt.sign({ data: req.body.user.soDienThoai }, 'secret', { expiresIn: '1y' });
+        //req.session.token = token;
+        var user = await userController.taoUser(req.body.user)
+        let giaoVien=await TeacherController.layChiTietTeacher(user.user.idTao);
+        
+        await firebaseController.insertaccount(user,giaoVien)
+        //user = JSON.parse(JSON.stringify(user))
+        //delete user.password;
+        res.send({
+            token,
+            user,
+           
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({ errorMessage: error.message })
+    }
+
+
+});
 router.post('/excel', async function (req, res) {
     try {
         //firebasetoken=passport.createPassportConfig(req.body,req.body.soDienThoai,req.body.password,done=true);
