@@ -21,6 +21,8 @@ var UserSchema = new Schema(
       khoi: { type: String },
       hinh: { type: String, default: "hero-bg.jpg" }, 
 
+      // test xamarin
+      tenTruong: { type: String, default: "THCS Tri Tôn - An Giang" }, 
 
     }],
     soDienThoai: { type: String },

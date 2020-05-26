@@ -44,6 +44,8 @@ router.get('/getall', async function (req, res) {
         res.status(500).send({ errorMessage: error.message })
     }
 })
+//test xamarin
+
 router.get('/profile', async function (req, res) {
     try {
         const token = req.headers['x-access-token'] || req.session.token

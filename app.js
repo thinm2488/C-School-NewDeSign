@@ -27,6 +27,7 @@ var diligenceRouter= require('./api/route/diligence')
 
 
 
+
 const app = express();
 app.use(logger('dev'));
 app.use(express.json());
@@ -48,6 +49,7 @@ app.use('/api/route/schedule', scheduleRouter)
 app.use('/api/route/student', studentRouter)
 app.use('/api/route/notification',notificationRouter)
 app.use('/api/route/diligence',diligenceRouter)
+
 app.get('/*', function(req,res) {
     
 res.sendFile(path.join(__dirname+'/dist/index.html'));
