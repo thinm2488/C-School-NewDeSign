@@ -12,6 +12,21 @@ const layTeacher = async function () {
     }
 
 }
+///xamarin
+const layTeacherbyclass = async function (sohieu) {
+    let list=[]
+    var listTeacher = await Teacher.find().sort({ tenNguoiDung: 1 });
+   
+   listTeacher.forEach(element=>{
+       element.lopDay.forEach(e=>{
+        if(e==sohieu){
+            list.push(element)
+        }
+       })
+   })
+  
+    return list
+}
 const layChiTietTeacher = async function (id) {
     var user = await Teacher.findOne({ _id: id });
     return {
@@ -322,6 +337,7 @@ const xoaTeacher = async function (id) {
 module.exports = {
     layTeacher: layTeacher,
     layChiTietTeacher: layChiTietTeacher,
+    layTeacherbyclass:layTeacherbyclass,
     //islogin:islogin,
     taoTeacher: taoTeacher,
     getTeacherByPhone: getTeacherByPhone,

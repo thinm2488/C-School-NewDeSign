@@ -2,6 +2,7 @@ var express = require('express');
 var session = require('express-session')
 var router = express.Router();
 var TeacherController = require('../controller/teacherController');
+var StudentController = require('../controller/studentController');
 var firebaseController = require('../controller/firebaseController');
 // var authController = require('../controller/authController');
 var jwt = require('jsonwebtoken');
@@ -43,6 +44,21 @@ router.get('/getall', async function (req, res) {
         res.status(500).send({ errorMessage: error.message })
     }
 })
+///xamarin
+router.get('/byidstudent/:id', async function (req, res) {
+    try {
+        var student= await StudentController.layChiTietStudent(req.params.id);
+        var list = await TeacherController.layTeacherbyclass(student.student.soHieu);
+        var teacher=list
+        res.send({
+            teacher
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({ errorMessage: error.message })
+    }
+})
+////
 router.get('/profile', async function (req, res) {
     try {
         const token = req.headers['x-access-token'] || req.session.token

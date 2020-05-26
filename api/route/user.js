@@ -170,7 +170,7 @@ router.post('/xamarin/signin', async function (req, res) {
         var token = jwt.sign({ data: req.body.soDienThoai }, 'secret', { expiresIn: '1y' });
         req.session.token = token;
         var user = await userController.checkLogin(req.body);
-
+      
         res.send({
             status: 200,
             token: token,
