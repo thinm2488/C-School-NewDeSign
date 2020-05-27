@@ -7,8 +7,25 @@ var scheduleController= require('../controller/scheduleController')
 var jwt = require('jsonwebtoken');
 var fileUpload = require('express-fileupload');
 const path = require('path');
- 
+ //xamarin
+router.post('/currentschedule', async function (req, res) {
+    try {
+        let date= new Date();
+        var schedule= await scheduleController.getCurrentSchedule(req.body.soHieu, date.getDay());
+        console.log(date.getDay())
+        let listmonhoc= schedule.listmonhoc;
+        res.send({
+           listmonhoc
+        })
 
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({ errorMessage: error.message })
+
+    }
+
+})
+///
 router.post('/', async function (req, res) {
     try {
         var student = await studentController.layChiTietStudent(req.body.id);
