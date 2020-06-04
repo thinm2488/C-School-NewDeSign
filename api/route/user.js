@@ -257,6 +257,7 @@ router.post('/change-avatar', multipartMiddleware, async function (req, res) {
         }
         else {
             var file = req.files.hinh;
+            console.log(file)
             req.body.hinh = file.name;
            // phoneObj.hinh=req.files.hinh.name;
 
