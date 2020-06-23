@@ -127,7 +127,14 @@ const getUserByPhone = async function (soDienThoai) {
 }
 
 
-
+const updateavatar= async function(data){
+    let users = await User.findOne({soDienThoai: data.soDienThoai})
+    users.hinh = data.hinh
+    await users.save();
+    return{
+        users
+    }
+}
 const checkLogin = async function (data) {
     let user = await User.findOne({ soDienThoai: data.soDienThoai || data });
     if (user) {
@@ -325,6 +332,7 @@ module.exports = {
     layuser: layuser,
     layChiTietUser: layChiTietUser,
     //islogin:islogin,
+    updateavatar:updateavatar,
     taoUser: taoUser,
     getUserByPhone: getUserByPhone,
     checkLogin: checkLogin,
