@@ -325,6 +325,16 @@ const xoaUser = async function (id) {
         message: 'Xóa thành công!'
     }
 }
+const updateAndroidToken = async function (data) {
+    let user = await User.findOne({ soDienThoai: data.soDienThoai });
+    user.androidToken=data.androidToken
+    await user.save();
+    return {
+        status: 200,
+        user
+    }
+}
+
 
 
 
@@ -339,7 +349,8 @@ module.exports = {
     editProfile: editProfile,
     xoaUser: xoaUser,
     changePass: changePass,
-    importexcel: importexcel
+    importexcel: importexcel,
+    updateAndroidToken:updateAndroidToken
     // resetPassword: resetPassword,
     // changePassword:changePassword
 }

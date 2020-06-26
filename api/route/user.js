@@ -331,6 +331,23 @@ router.post('/xamarin/change-avatar', async function (req, res) {
         res.status(500).send({ errorMessage: error.message })
     }
 });
+router.post('/xamarin/updateAndroidToken', async function (req, res) {
+    try {
+        //var token = jwt.sign({ data: req.body.soDienThoai }, 'secret', { expiresIn: '1y' });
+        //req.session.token = token;
+        //user = await userController.getUserByPhone(req.body.soDienThoai);
+        let user =await userController.updateAndroidToken(req.body)
+        if(user){
+            res.send({
+                status: 200                
+            })
+        }
+       
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({ errorMessage: error.message })
+    }
+});
 router.post('/change-password', async function (req, res) {
     try {
         var token = jwt.sign({ data: req.body.soDienThoai }, 'secret', { expiresIn: '1y' });
