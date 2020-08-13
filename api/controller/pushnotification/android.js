@@ -45,11 +45,11 @@ function sendnoti(token, str, nguoiTao){
       //to: token, //single device
       //collapse_key: 'your_collapse_key',
       to: token[i], //single device
-      notification: {
+      data: {
           title: nguoiTao.user.tenNguoiDung, 
           body: str.noiDung ,
-          tag:str.idfirebase,
-
+          id:str.dayoff.id,
+          sented:"NOTIFICATION_SCHOOL" 
       },
       
       
@@ -80,13 +80,13 @@ function sendnotidayoff( str,data){
       //to: token, //single device
       //collapse_key: 'your_collapse_key',
       to: data.user.androidToken, //single device
-      notification: {
-          title: "Yêu Cầu Xin nghỉ Phép", 
-          body: "Yêu cầu xin nghỉ phép ngày "+ngaynghi+" đã được duyệt!" ,
-          tag: str.dayoff.id,
-
-      },
-      
+    
+      data : {
+        title: "Yêu Cầu Xin nghỉ Phép", 
+        body: "Yêu cầu xin nghỉ phép ngày "+ngaynghi+" đã được duyệt!" ,
+        id:str.dayoff.id,
+        sented:"NOTIFICATION_SCHOOL", 
+      }
       
      
   };
@@ -114,11 +114,12 @@ function sendnotideny( str,data){
        //to: token, //single device
        //collapse_key: 'your_collapse_key',
        to: data.user.androidToken, //single device
-       notification: {
+       data: {
            title: "Từ chối yêu cầu nghỉ Phép", 
            body: "Yêu cầu xin nghỉ phép ngày "+ngaynghi+" không được duyệt. Vì lý do:"+str.lydo+" " ,
-           tag: str.dayoff.id,
- 
+           //tag: str.dayoff.id,
+           id:str.dayoff.id,
+           sented:"NOTIFICATION_SCHOOL" 
        },
        
        
